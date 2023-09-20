@@ -1,0 +1,2 @@
+score = str(input())
+
