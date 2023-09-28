@@ -8,7 +8,7 @@ for idx in range(len(nums)):
     sum_idx = 0
     for digit in num:
         sum_idx += int(digit)
-    if sum_idx > len(string):
+    if sum_idx >= len(string):
         new_idx = sum_idx - len(string) * (sum_idx // len(string))
     else:
         new_idx = sum_idx
