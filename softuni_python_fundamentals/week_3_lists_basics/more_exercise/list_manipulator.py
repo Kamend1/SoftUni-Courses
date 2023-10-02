@@ -1,6 +1,7 @@
 numbers = list(int(x) for x in input().split(" "))
 even = []
 odd = []
+new_list = []
 
 for element in numbers:
     if element % 2 == 0:
@@ -18,73 +19,88 @@ while True:
         numbers_1 = numbers[:idx + 1]
         numbers_2 = numbers[idx + 1:]
         numbers = numbers_2 + numbers_1
-    if user_command == "max odd":
+    elif user_command == "max odd":
         if not odd:
             print("No matches")
             continue
-        max_index = 0
-        for i in range(len(odd)):
-            if odd[i] >= odd[max_index]:
-                max_index = i
-        print(max_index)
-    if user_command == "max even":
+        max_odd = max(odd)
+        for i in range(len(numbers) - 1, - 1, - 1):
+            if numbers[i] == max_odd:
+                print(i)
+                break
+    elif user_command == "max even":
         if not even:
             print("No matches")
             continue
-        max_index = 0
-        for i in range(len(even)):
-            if even[i] >= even[max_index]:
-                max_index = i
-        print(max_index)
-    if user_command == "min even":
+        max_even = max(even)
+        for i in range(len(numbers) - 1, - 1, - 1):
+            if max_even == numbers[i]:
+                print(i)
+                break
+    elif user_command == "min even":
         if not even:
             print("No matches")
             continue
-        min_index = 0
-        for i in range(len(even)):
-            if even[i] <= even[min_index]:
-                min_index = i
-        print(min_index)
-    if user_command == "min odd":
+        min_even = min(even)
+        for i in range(len(numbers) - 1, - 1, - 1):
+            if numbers[i] == min_even:
+                print(i)
+                break
+    elif user_command == "min odd":
         if not odd:
             print("No matches")
             continue
-        min_index = 0
-        for i in range(len(odd)):
-            if odd[i] <= odd[min_index]:
-                min_index = i
-        print(min_index)
-    if user_command[:5] == "first":
+        min_odd = min(odd)
+        for i in range(len(numbers) - 1, - 1, - 1):
+            if numbers[i] == min_odd:
+                print(i)
+                break
+    elif user_command[:5] == "first":
+        new_list = []
         if user_command[8:] == "even":
-            idx = int(user_command[6])
-            if idx >= len(even) or not even:
+            counter = int(user_command[6])
+            if counter > len(numbers):
                 print("Invalid count")
                 continue
-            new_list = even[:idx]
-            print(new_list)
+            for num in numbers:
+                if num % 2 == 0:
+                    new_list.append(num)
+                    if counter == len(new_list):
+                        break
         elif user_command[8:] == "odd":
-            idx = int(user_command[6])
-            if idx >= len(odd) or not odd:
+            counter = int(user_command[6])
+            if counter > len(numbers):
                 print("Invalid count")
                 continue
-            new_list = odd[:idx]
-            print(new_list)
-    if user_command[:4] == "last":
+            for num in numbers:
+                if num % 2 != 0:
+                    new_list.append(num)
+                    if counter == len(new_list):
+                        break
+        print(new_list)
+    elif user_command[:4] == "last":
+        new_list = []
         if user_command[7:] == "even":
-            idx = int(user_command[5])
-            if idx >= len(even) or not even:
+            counter = int(user_command[5])
+            if counter > len(numbers):
                 print("Invalid count")
                 continue
-            new_list = even[idx:]
-            print(new_list)
+            for idx in range(len(numbers) - 1, -1, -1):
+                if numbers[idx] % 2 == 0:
+                    new_list.insert(0, numbers[idx])
+                    if counter == len(new_list):
+                        break
         elif user_command[7:] == "odd":
-            idx = int(user_command[5])
-            if idx >= len(odd) or not odd:
+            counter = int(user_command[5])
+            if counter > len(numbers):
                 print("Invalid count")
                 continue
-            new_list = odd[idx:]
-            print(new_list)
-
-    if user_command == "end":
+            for idx in range(len(numbers) - 1, -1, -1):
+                if numbers[idx] % 2 != 0:
+                    new_list.insert(0, numbers[idx])
+                    if counter == len(new_list):
+                        break
+        print(new_list)
+    elif user_command == "end":
         print(numbers)
         break

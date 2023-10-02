@@ -12,6 +12,24 @@ if game[0][0] == game[0][1] and game[0][2]:
     else:
         pass
 
+# second row
+elif game[1][0] == game[1][1] and game[1][2]:
+    if game[1][0] == 1:
+        print("First player won")
+    elif game[1][0] == 2:
+        print("Second player won")
+    else:
+        pass
+
+# third row
+elif game[2][0] == game[2][1] and game[2][2]:
+    if game[2][0] == 1:
+        print("First player won")
+    elif game[2][0] == 2:
+        print("Second player won")
+    else:
+        pass
+
 # first column
 elif game[0][0] == game[1][0] and game[2][0]:
     if game[0][0] == 1:
@@ -35,24 +53,6 @@ elif game[0][2] == game[1][2] and game[2][2]:
     if game[0][2] == 1:
         print("First player won")
     elif game[0][2] == 2:
-        print("Second player won")
-    else:
-        pass
-
-# second row
-elif game[1][0] == game[1][1] and game[1][2]:
-    if game[1][0] == 1:
-        print("First player won")
-    elif game[1][0] == 2:
-        print("Second player won")
-    else:
-        pass
-
-# third row
-elif game[2][0] == game[2][1] and game[2][2]:
-    if game[2][0] == 1:
-        print("First player won")
-    elif game[2][0] == 2:
         print("Second player won")
     else:
         pass
