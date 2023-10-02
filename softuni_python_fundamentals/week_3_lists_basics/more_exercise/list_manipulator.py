@@ -11,8 +11,9 @@ for element in numbers:
 
 while True:
     user_command = input()
-    if user_command[:8] == "exchange":
-        idx = int(user_command[9:])
+    user_command_list = list(user_command.split())
+    if user_command_list[0] == "exchange":
+        idx = int(user_command_list[1])
         if idx < 0 or idx >= len(numbers):
             print("Invalid index")
             continue
@@ -55,10 +56,10 @@ while True:
             if numbers[i] == min_odd:
                 print(i)
                 break
-    elif user_command[:5] == "first":
+    elif user_command_list[0] == "first":
         new_list = []
-        if user_command[8:] == "even":
-            counter = int(user_command[6])
+        if user_command_list[2] == "even":
+            counter = int(user_command_list[1])
             if counter > len(numbers):
                 print("Invalid count")
                 continue
@@ -67,8 +68,8 @@ while True:
                     new_list.append(num)
                     if counter == len(new_list):
                         break
-        elif user_command[8:] == "odd":
-            counter = int(user_command[6])
+        elif user_command_list[2] == "odd":
+            counter = int(user_command_list[1])
             if counter > len(numbers):
                 print("Invalid count")
                 continue
@@ -78,10 +79,10 @@ while True:
                     if counter == len(new_list):
                         break
         print(new_list)
-    elif user_command[:4] == "last":
+    elif user_command_list[0] == "last":
         new_list = []
-        if user_command[7:] == "even":
-            counter = int(user_command[5])
+        if user_command_list[2] == "even":
+            counter = int(user_command_list[1])
             if counter > len(numbers):
                 print("Invalid count")
                 continue
@@ -90,8 +91,8 @@ while True:
                     new_list.insert(0, numbers[idx])
                     if counter == len(new_list):
                         break
-        elif user_command[7:] == "odd":
-            counter = int(user_command[5])
+        elif user_command_list[2] == "odd":
+            counter = int(user_command_list[1])
             if counter > len(numbers):
                 print("Invalid count")
                 continue
