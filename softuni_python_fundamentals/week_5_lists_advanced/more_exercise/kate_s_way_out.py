@@ -21,9 +21,15 @@ def find_all_paths(row, column, labyrinth, direction, path, all_paths):
 
     path.pop()
     if len(all_paths) == 0:
-        return None
+        if (row == 0 or row == rows - 1 or column == 0 or column == columns - 1) \
+                and labyrinth[row][column] == "k":
+            result = 1
+            return result
+        else:
+            return None
 
-    return all_paths
+    result = len(all_paths)
+    return result
 
 
 rows = int(input())
@@ -53,5 +59,7 @@ for idx in range(len(all_paths_kate)):
 
 if find_all_paths(starting_row, starting_column, labyrinth, "", [], all_paths_kate) == None:
     print("Kate cannot get out")
+elif find_all_paths(starting_row, starting_column, labyrinth, "", [], all_paths_kate) == 1:
+    print("Kate got out in 1 moves")
 else:
     print(f"Kate got out in {max_len + 1} moves")
