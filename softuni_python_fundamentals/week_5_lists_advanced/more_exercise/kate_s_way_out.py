@@ -5,6 +5,9 @@ def find_all_paths(row, column, labyrinth, direction, path, all_paths):
         return
     if labyrinth[row][column] == "v":
         return
+    if labyrinth[row][column] == "k" and (row == 0 or row == rows - 1 or column == 0 or column == columns - 1):
+        path_string = "S"
+        all_paths.append(path_string)
 
     path.append(direction)
 
@@ -21,12 +24,7 @@ def find_all_paths(row, column, labyrinth, direction, path, all_paths):
 
     path.pop()
     if len(all_paths) == 0:
-        if (row == 0 or row == rows - 1 or column == 0 or column == columns - 1) \
-                and labyrinth[row][column] == "k":
-            result = 1
-            return result
-        else:
-            return None
+        return None
 
     result = len(all_paths)
     return result
@@ -51,15 +49,13 @@ for row in range(rows):
         if (row == 0 or row == rows - 1 or column == 0 or column == columns - 1) and labyrinth[row][column] == " ":
             labyrinth[row][column] = "e"
 
-find_all_paths(starting_row, starting_column, labyrinth, "", [], all_paths_kate)
+find_all_paths(starting_row, starting_column, labyrinth, "S", [], all_paths_kate)
 max_len = 0
 for idx in range(len(all_paths_kate)):
     if len(all_paths_kate[idx]) > max_len:
         max_len = len(all_paths_kate[idx])
 
-if find_all_paths(starting_row, starting_column, labyrinth, "", [], all_paths_kate) == None:
+if find_all_paths(starting_row, starting_column, labyrinth, "S", [], all_paths_kate) == None:
     print("Kate cannot get out")
-elif find_all_paths(starting_row, starting_column, labyrinth, "", [], all_paths_kate) == 1:
-    print("Kate got out in 1 moves")
 else:
-    print(f"Kate got out in {max_len + 1} moves")
+    print(f"Kate got out in {max_len} moves")
