@@ -14,7 +14,7 @@ def merge_elements(start_idx: int, end_idx: int, element_list: list):
     concatenated_string = "".join(removed_strings)
     for item in removed_strings:
         element_list.remove(item)
-    element_list.insert(start_index, concatenated_string)
+    element_list.insert(start_idx, concatenated_string)
     return element_list
 
 
