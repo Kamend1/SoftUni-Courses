@@ -19,8 +19,8 @@ while True:
         dwarves[dwarf_color][dwarf_name] = {"physics": dwarf_physics}
 
 
-sorted_dwarves = dict(sorted(dwarves.items(), key=lambda x: (max(v['physics']
-                            for v in x[1].values()), len(x[1])), reverse=True))
+sorted_dwarves = dict(sorted(dwarves.items(), key=lambda x: (max(v["physics"] for v in x[1].values()),
+                                                             len(x[1])), reverse=True))
 
 for hat_color, names in sorted_dwarves.items():
     for name, attributes in names.items():
