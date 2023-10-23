@@ -15,7 +15,7 @@ while user_command != "exam finished":
     else:
         for key, value in exam_results.items():
             if user_command[0] in value:
-                exam_results[key][user_command[0]].pop()
+                exam_results[key][user_command[0]] = []
                 exam_results[key][user_command[0]].append("banned")
     user_command = input()
 
@@ -24,7 +24,7 @@ for language, names in exam_results.items():
     for name, score in names.items():
       if score[0] != "banned":
         print(f"{name} | {max(score)}")
-
+print(exam_results)
 print("Submissions:")
 for language, names in exam_results.items():
     submissions = 0
