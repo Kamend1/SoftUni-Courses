@@ -16,7 +16,7 @@ class Class:
         return average_grade
 
     def __repr__(self):
-        return f"The students in {self.name}: {', '.join(self.students)}. Average grade: {Class.get_average_grade(self):.2f}"
+        return f"The students in {self.name}: {', '.join(self.students)}. Average grade: {self.get_average_grade():.2f}"
 
 a_class = Class("11B")
 a_class.add_student("Peter", 4.80)
