@@ -1,8 +1,8 @@
 def add_player(name: str, skill: str, value: int, pool: dict):
     if name not in pool.keys():
         pool[name] = {}
-    if skill not in pool[name].keys():
-        pool[name][skill] = 0
+    if skill not in pool[name]:
+        pool[name][skill] = value
     if pool[name][skill] < value:
         pool[name][skill] = value
     return pool
@@ -19,7 +19,8 @@ def player_duel(player_1: str, player_2: str, pool: dict):
                     to_remove.append(player_1)
 
         for player in to_remove:
-            pool.pop(player)
+            if player in pool:
+                pool.pop(player)
 
     return pool
 

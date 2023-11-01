@@ -1,4 +1,5 @@
 dwarves = {}
+hat_color_by_count = {}
 
 while True:
     user_command = input().split(" <:> ")
@@ -13,14 +14,19 @@ while True:
         dwarves[dwarf_color] = {}
 
     if dwarf_name not in dwarves[dwarf_color]:
-        dwarves[dwarf_color][dwarf_name] = {"physics": dwarf_physics}
+        dwarves[dwarf_color][dwarf_name] = dwarf_physics
     else:
-        dwarves[dwarf_color].pop(dwarf_name, {})
-        dwarves[dwarf_color][dwarf_name] = {"physics": dwarf_physics}
+        if dwarves[dwarf_color][dwarf_name] < dwarf_physics:
+            dwarves[dwarf_color][dwarf_name] = dwarf_physics
 
+for hat_color, dwarf_list in dwarves.items():
+    if hat_color not in hat_color_by_count:
+        hat_color_by_count[hat_color] = 0
+    for dwarf in dwarf_list.keys():
+        hat_color_by_count[hat_color] += 1
 
-sorted_dwarves = dict(sorted(dwarves.items(), key=lambda x: (-max(v['physics'] for v in x[1].values()), -len(x[1]))))
+sorted_dwarves = sorted(dwarves.items(), key=lambda x: (max(v for v in x[1].values()), len(x[0])), reverse=True)
 
-for hat_color, names in sorted_dwarves.items():
+for hat_color, names in sorted_dwarves:
     for name, attributes in names.items():
-        print(f"({hat_color}) {name} <-> {attributes['physics']}")
+        print(f"({hat_color}) {name} <-> {attributes}")
