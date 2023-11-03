@@ -7,16 +7,21 @@ while user_command != "exam finished":
     user_command = user_command.split("-")
 
     if user_command[1] != "banned":
-        if user_command[1] not in exam_results.keys():
-            exam_results[user_command[1]] = {}
-        if user_command[0] not in exam_results[user_command[1]]:
-            exam_results[user_command[1]][user_command[0]] = []
-        exam_results[user_command[1]][user_command[0]].append(user_command[2])
+        name = user_command[0]
+        language = user_command[1]
+        score = int(user_command[2])
+        if language not in exam_results.keys():
+            exam_results[language] = {}
+        if name not in exam_results[language]:
+            exam_results[language][name] = []
+        exam_results[language][name].append(score)
     else:
+        name = user_command[0]
+        banned = user_command[1]
         for key, value in exam_results.items():
-            if user_command[0] in value:
-                exam_results[key][user_command[0]] = []
-                exam_results[key][user_command[0]].append("banned")
+            if name in value:
+                for idx in range(len(exam_results[key][name])):
+                    exam_results[key][name][idx] = "banned"
     user_command = input()
 
 print("Results:")
@@ -24,7 +29,6 @@ for language, names in exam_results.items():
     for name, score in names.items():
       if score[0] != "banned":
         print(f"{name} | {max(score)}")
-print(exam_results)
 print("Submissions:")
 for language, names in exam_results.items():
     submissions = 0
