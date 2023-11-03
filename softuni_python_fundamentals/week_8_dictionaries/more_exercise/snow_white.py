@@ -25,8 +25,31 @@ for hat_color, dwarf_list in dwarves.items():
     for dwarf in dwarf_list.keys():
         hat_color_by_count[hat_color] += 1
 
-sorted_dwarves = sorted(dwarves.items(), key=lambda x: (max(v for v in x[1].values()), len(x[0])), reverse=True)
+hat_color_by_count = dict(sorted(hat_color_by_count.items(), key=lambda x: -x[1]))
 
-for hat_color, names in sorted_dwarves:
+ranked_hat_color_by_count = {}
+counter = len(hat_color_by_count)
+for hat_color in hat_color_by_count:
+    if hat_color not in ranked_hat_color_by_count:
+        ranked_hat_color_by_count[hat_color] = 0
+    ranked_hat_color_by_count[hat_color] = counter
+    counter -= 1
+
+ranked_dwarves = {value: dwarves[key] for key, value in ranked_hat_color_by_count.items()}
+
+sorted_dwarves_list = []
+
+for hat_color, names in ranked_dwarves.items():
     for name, attributes in names.items():
-        print(f"({hat_color}) {name} <-> {attributes}")
+        sorted_dwarves_list.append((hat_color, name, attributes))
+
+sorted_dwarves_list.sort(key=lambda x: (-x[2], -x[0]))
+
+result = []
+
+for num, name, value in sorted_dwarves_list:
+    color = next((color for color, number in ranked_hat_color_by_count.items() if number == num), num)
+    result.append((color, name, value))
+
+for tuple in result:
+    print(f"({tuple[0]}) {tuple[1]} <-> {tuple[2]}")
