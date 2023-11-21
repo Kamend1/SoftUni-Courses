@@ -14,7 +14,7 @@
       <excludeFolder url="file://$MODULE_DIR$/softuni_python_fundamentals/Scripts" />
       <excludeFolder url="file://$MODULE_DIR$/softuni_python_fundamentals/venv" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.9 (SoftUni-Courses)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.12 (venv)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
