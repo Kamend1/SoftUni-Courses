@@ -10,13 +10,14 @@ class Car:
         if fuel_spent > self.fuel:
             result = "Not enough fuel to make that ride"
         else:
-            result =  f"{self.model} driven for {miles} kilometers. {fuel_spent} liters of fuel consumed."
+            result = f"{self.model} driven for {miles} kilometers. {fuel_spent} liters of fuel consumed."
             self.mileage += miles
             self.fuel -= fuel_spent
             if self.mileage > 100000:
                 self.sold = True
                 result += f"\nTime to sell the {self.model}!"
         return result
+
     def refuel(self, fuel_added: int):
         if self.fuel + fuel_added > 75:
             fuel_added = 75 - self.fuel
@@ -33,8 +34,9 @@ class Car:
             return f"{self.model} mileage decreased by {miles_reverted} kilometers"
 
     def __repr__(self):
-        if self.sold == False:
+        if not self.sold:
             return f"{self.model} -> Mileage: {self.mileage} kms, Fuel in the tank: {self.fuel} lt."
+
 
 number_of_cars = int(input())
 available_cars = {}
@@ -60,7 +62,7 @@ while True:
     elif user_command[0] == "Revert":
         treated_car = available_cars[user_command[1]]
         result = treated_car.revert(int(user_command[2]))
-        if result != None:
+        if result is not None:
             print(result)
 
 # print(available_cars)
