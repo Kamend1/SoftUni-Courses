@@ -6,7 +6,6 @@ class Car:
         self.sold = sold
 
     def drive(self, miles: int, fuel_spent: int):
-        result = ""
         if fuel_spent > self.fuel:
             result = "Not enough fuel to make that ride"
         else:
@@ -42,9 +41,9 @@ number_of_cars = int(input())
 available_cars = {}
 
 for _ in range(number_of_cars):
-    model, mileage, fuel = input().split('|')
-    current_car = Car(model, int(mileage), int(fuel))
-    available_cars[model] = current_car
+    current_model, current_mileage, current_fuel = input().split('|')
+    current_car = Car(current_model, int(current_mileage), int(current_fuel))
+    available_cars[current_model] = current_car
 
 while True:
     user_command = input().split(" : ")
@@ -53,17 +52,17 @@ while True:
     elif user_command[0] == "Drive":
 
         treated_car = available_cars[user_command[1]]
-        result = treated_car.drive(int(user_command[2]), int(user_command[3]))
-        print(result)
+        current_result = treated_car.drive(int(user_command[2]), int(user_command[3]))
+        print(current_result)
     elif user_command[0] == "Refuel":
         treated_car = available_cars[user_command[1]]
-        result = treated_car.refuel(int(user_command[2]))
-        print(result)
+        current_result = treated_car.refuel(int(user_command[2]))
+        print(current_result)
     elif user_command[0] == "Revert":
         treated_car = available_cars[user_command[1]]
-        result = treated_car.revert(int(user_command[2]))
-        if result is not None:
-            print(result)
+        current_result = treated_car.revert(int(user_command[2]))
+        if current_result is not None:
+            print(current_result)
 
 # print(available_cars)
 
