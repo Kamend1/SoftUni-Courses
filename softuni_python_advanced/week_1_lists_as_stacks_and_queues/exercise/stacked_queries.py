@@ -17,9 +17,5 @@ for _ in range(number_commands):
             print(min(stack))
 
 if stack:
-    if len(stack) > 1:
-        while len(stack) > 1:
-            print(stack.pop(), end=", ")
-        print(stack.pop())
-    else:
-        print(stack.pop())
+    stack.reverse()
+    print(*stack, sep=", ")
