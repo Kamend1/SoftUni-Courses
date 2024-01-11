@@ -9,12 +9,7 @@ for _ in range(len(customer_queue)):
     if customer_queue[0] <= food_qty:
         food_qty -= customer_queue.popleft()
     else:
+        print("Orders left:", *customer_queue)
         break
-
-if len(customer_queue) == 0:
-    print("Orders complete")
 else:
-    new_string = "Orders left:"
-    while customer_queue:
-        new_string += " " + str(customer_queue.popleft())
-    print(new_string)
+    print("Orders complete")
