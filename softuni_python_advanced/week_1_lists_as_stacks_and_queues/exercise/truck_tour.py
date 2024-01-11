@@ -1,7 +1,7 @@
 from collections import deque
 
 num_petrol_pumps = int(input())
-pump_queue = []
+pump_queue = deque()
 visited_queue = []
 gas_tank = 0
 start_index = 0
@@ -10,7 +10,6 @@ for _ in range(num_petrol_pumps):
     pump_data = [int(x) for x in input().split()]
     pump_queue.append(pump_data)
 
-pump_queue = deque(pump_queue)
 
 while pump_queue:
     current_pump = pump_queue.popleft()
