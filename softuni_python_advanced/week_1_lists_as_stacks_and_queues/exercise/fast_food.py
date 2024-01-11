@@ -1,8 +1,7 @@
 from collections import deque
 
 food_qty = int(input())
-customer_queue = [int(x) for x in input().split()]
-customer_queue = deque(customer_queue)
+customer_queue = deque(int(x) for x in input().split())
 
 print(max(customer_queue))
 
