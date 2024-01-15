@@ -1,7 +1,6 @@
 counter = int(input())
 raw_data = []
 longest_intersection = []
-max_length = 0
 
 for _ in range(counter):
     raw_data.append(input())
@@ -15,7 +14,8 @@ for data in raw_data:
     current_intersection = set_1.intersection(set_2)
 
     if len(current_intersection) > len(longest_intersection):
-        max_length = len(current_intersection)
         longest_intersection = list(current_intersection)
 
-print(f"Longest intersection is {longest_intersection} with length {max_length}")
+print(f"Longest intersection is {longest_intersection}" 
+      f" with length {len(longest_intersection)}"
+      )

@@ -1,13 +1,9 @@
-counter = int(input())
 set_even = set()
 set_odd = set()
 
-for i in range(1, counter + 1):
-    name_score = 0
-    name = input()
-    for char in name:
-        name_score += ord(char)
-    name_score //= i
+for i in range(1, int(input()) + 1):
+    name_score = sum(ord(char) for char in input()) // i
+
     if name_score % 2 == 0:
         set_even.add(name_score)
     else:
