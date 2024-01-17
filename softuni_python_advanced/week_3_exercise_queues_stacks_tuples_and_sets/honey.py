@@ -5,26 +5,20 @@ values_nectar = [int(x) for x in input().split()]
 honey_making_symbols = deque(x for x in input().split())
 total_honey_made = 0
 
+functions = {
+    "+": lambda a, b: a + b,
+    "-": lambda a, b: a - b,
+    "*": lambda a, b: a * b,
+    "/": lambda a, b: a / b if b != 0 else 0,
+}
+
+
 while values_bees and values_nectar:
     current_bee = values_bees.popleft()
     current_nectar = values_nectar.pop()
     if current_nectar >= current_bee:
         current_symbol = honey_making_symbols.popleft()
-        if current_symbol == "/":
-            if current_nectar == 0:
-                continue
-            else:
-                honey_made = abs(current_bee / current_nectar)
-                total_honey_made += honey_made
-        elif current_symbol == "*":
-            honey_made = abs(current_bee * current_nectar)
-            total_honey_made += honey_made
-        elif current_symbol == "+":
-            honey_made = abs(current_bee + current_nectar)
-            total_honey_made += honey_made
-        elif current_symbol == "-":
-            honey_made = abs(current_bee - current_nectar)
-            total_honey_made += honey_made
+        total_honey_made += abs(functions[current_symbol](current_bee, current_nectar))
     else:
         values_bees.appendleft(current_bee)
 
