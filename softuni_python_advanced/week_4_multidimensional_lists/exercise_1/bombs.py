@@ -8,7 +8,10 @@ while coordinates:
     current_bomb = coordinates.popleft()
     current_row = int(current_bomb[0])
     current_col = int(current_bomb[2])
-    current_damage = matrix[current_row][current_col]
+    if matrix[current_row][current_col] > 0:
+        current_damage = matrix[current_row][current_col]
+    else:
+        current_damage = 0
     row = current_row - 1
     col = current_col - 1
     for i in range(3):
