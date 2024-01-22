@@ -40,7 +40,7 @@ while True:
         break
     if sorted_attacks:
         current_knight = sorted_attacks.popleft()
-        field[current_knight[0][0]][current_knight[0][1]] = 0
+        field[current_knight[0][0]][current_knight[0][1]] = '0'
         original_knights -= 1
         removed_knights += 1
     else:
