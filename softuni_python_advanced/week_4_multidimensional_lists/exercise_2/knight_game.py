@@ -14,7 +14,9 @@ size = int(input())
 field = [[char for char in input()] for _ in range(size)]
 original_knights = len(find_all_knights(field, size))
 removed_knights = 0
-attacked_fields = [(-2, -1), (-2, +1), (-1, -2), (-1, +2), (+1, -2), (+1, +2), (+2, -1), (+2, +1)]
+# attacked_fields = [(-2, -1), (-2, +1), (-1, -2), (-1, +2), (+1, -2), (+1, +2), (+2, -1), (+2, +1)]
+pos_nums = [-2, -1, 1, 2]
+attacked_fields = [(x, y) for x in pos_nums for y in pos_nums if abs(x) != abs(y)]
 
 while True:
     knight_coordinates = find_all_knights(field, size)
