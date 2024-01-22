@@ -19,16 +19,16 @@ def count_targets(matrix):
 
 def shooter_move(row_idx, col_idx, matrix, command, steps):
     matrix[row_idx][col_idx] = '.'
-    for _ in range(steps):
-        row_idx += directions[command][0]
-        col_idx += directions[command][1]
+
+    row_idx += directions[command][0] * steps
+    col_idx += directions[command][1] * steps
 
     if 0 <= row_idx < 5 and 0 <= col_idx < 5 and matrix[row_idx][col_idx] != 'x':
         matrix[row_idx][col_idx] = 'A'
     else:
-        for _ in range(steps):
-            row_idx -= directions[command][0]
-            col_idx -= directions[command][1]
+
+        row_idx -= directions[command][0] * steps
+        col_idx -= directions[command][1] * steps
         matrix[row_idx][col_idx] = 'A'
 
     return row_idx, col_idx
