@@ -1,5 +1,6 @@
 from collections import deque
 
+
 def find_all_knights(matrix, length):
     queue = []
     for row_idx in range(length):
