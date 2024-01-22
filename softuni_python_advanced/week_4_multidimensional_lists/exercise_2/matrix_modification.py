@@ -12,5 +12,4 @@ while command != "END":
         print("Invalid coordinates")
     command = input()
 
-for list in matrix:
-    print(*list)
+[print(*row) for row in matrix]
