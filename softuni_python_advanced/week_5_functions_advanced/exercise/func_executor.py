@@ -1,10 +1,9 @@
 def func_executor(*args):
     string = ''
-    print(args)
     for element in args:
         function_name, current_args = element
         result = function_name(*current_args)
-        string += f"{function_name} - {result}\n"
+        string += f"{function_name.__name__} - {result}\n"
     return string
 
 def sum_numbers(num1, num2):
