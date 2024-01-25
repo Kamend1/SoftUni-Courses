@@ -20,10 +20,7 @@ def math_operations(*args, **kwargs):
 
     sorted_kwargs = sorted(kwargs.items(), key=lambda x: (-x[1], x[0]))
 
-    result = ''
-    for element in sorted_kwargs:
-        k, v = element
-        result += f"{k}: {v:.1f}\n"
+    result = '\n'.join(f"{k}: {v:.1f}" for k, v in sorted_kwargs)
 
     return result
 
