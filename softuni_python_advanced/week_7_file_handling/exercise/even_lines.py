@@ -13,17 +13,16 @@ characters_set = {"-", ",", ".", "!", "?"}
 
 
 with open(path_to_write, "w") as fw_file:
-    for idx in range(len(lines)):
-        if idx % 2 == 0:
-            string_to_add = ''
-            new_line = lines[idx].split()
+    for idx in range(0, len(lines), 2):
+        string_to_add = ''
+        new_line = lines[idx].split()
 
-            for el in reversed(new_line):
-                print(el)
-                for char in el:
-                    if char in characters_set:
-                        el = el.replace(char, '@')
-                string_to_add += el + " "
+        for el in reversed(new_line):
+            for char in el:
+                if char in characters_set:
+                    el = el.replace(char, '@')
+            string_to_add += el + " "
+        print(string_to_add)
 
 
         fw_file.write(f"{string_to_add}\n")
