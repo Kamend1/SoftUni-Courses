@@ -17,6 +17,7 @@ def replace_in_file(filename, old_string, new_string):
             contents = contents.replace(old_string, new_string)
             f.seek(0)
             f.write(contents)
+            f.truncate()
     except FileNotFoundError:
         print("An error occurred")
 
