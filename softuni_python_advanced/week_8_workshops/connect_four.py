@@ -20,10 +20,9 @@ COLUMNS_HEADING = [x for x in range(1, COLUMNS + 1)]
 
 
 def check_if_field_full(matrix):
-    for row in range(len(matrix)):
-        for col in range(len(matrix[row])):
-            if matrix[row][col] == 0:
-                return True
+    for col in range(len(matrix[0])):
+        if matrix[0][col] == 0:
+            return True
     else:
         raise FieldFullError
 
@@ -36,12 +35,11 @@ def validate_column(column_idx):
             raise InvalidColumnInput
 
 
-def place_player_move(matrix, column_idx, player_id):
+def place_player_move(matrix, column_idx):
     for row_idx in range(ROWS - 1, - 1, -1):
         if matrix[row_idx][column_idx] != 0:
             continue
         else:
-            # matrix[row_idx][column_idx] = player_id
             player_moved_bool = True
             current_row_idx = row_idx
             current_column_idx = column_idx
@@ -185,7 +183,7 @@ while True:
         column = int(current_move) - 1
 
         try:
-            player_moved, current_row, current_col = place_player_move(field, column, player_num)
+            player_moved, current_row, current_col = place_player_move(field, column)
             field[current_row][current_col] = player_num
         except ColumnFullError:
             print("This column is full, Try another column!")
@@ -209,3 +207,4 @@ while True:
         check_if_field_full(field)
     except FieldFullError:
         print("No more space for moves. No winner! Game Over\nStart a new game")
+        exit(0)
