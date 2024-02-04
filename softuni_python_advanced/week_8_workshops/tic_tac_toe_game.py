@@ -42,6 +42,8 @@ def check_if_field_full(matrix):
 def validate_play_input(play_input):
     if not play_input.isdigit():
         raise InvalidPlayerInput
+    elif len(play_input) > 1:
+        raise InvalidPlayerInput
     else:
         if int(play_input) < 1 or int(play_input) > 9:
             raise InvalidPlayerInput
