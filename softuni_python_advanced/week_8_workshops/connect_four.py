@@ -17,12 +17,16 @@ class FieldFullError(Exception):
 ROWS = 6
 COLUMNS = 7
 COLUMNS_HEADING = [x for x in range(1, COLUMNS + 1)]
-
+directions = {
+    'up': (-1, 0),
+    'left': (0, -1),
+    'upleft': (-1, -1),
+    'upright': (-1, 1)
+}
 
 def check_if_field_full(matrix):
-    for col in range(len(matrix[0])):
-        if matrix[0][col] == 0:
-            return True
+    if 0 in matrix[0]:
+        return True
     else:
         raise FieldFullError
 
@@ -48,7 +52,7 @@ def place_player_move(matrix, column_idx):
         raise ColumnFullError
 
 
-def search_secondary_diagonal(matrix, row_idx, col_idx, player_idx):
+def search_direction(matrix, row_idx, col_idx, player_idx, direction):
     current_matrix = copy.deepcopy(matrix)
     result = 0
 
@@ -62,68 +66,10 @@ def search_secondary_diagonal(matrix, row_idx, col_idx, player_idx):
     if result == 4:
         return result
 
-    result += search_secondary_diagonal(current_matrix, row_idx - 1, col_idx + 1, player_idx)
-    result += search_secondary_diagonal(current_matrix, row_idx + 1, col_idx - 1, player_idx)
+    coords = directions[direction]
 
-    return result
-
-
-def search_primary_diagonal(matrix, row_idx, col_idx, player_idx):
-    current_matrix = copy.deepcopy(matrix)
-    result = 0
-
-    if row_idx < 0 or col_idx < 0 or row_idx >= len(current_matrix) or col_idx >= len(current_matrix[0]):
-        return 0
-    if current_matrix[row_idx][col_idx] != player_idx:
-        return 0
-
-    current_matrix[row_idx][col_idx] = 'v'
-    result += 1
-    if result == 4:
-        return result
-
-    result += search_primary_diagonal(current_matrix, row_idx - 1, col_idx - 1, player_idx)
-    result += search_primary_diagonal(current_matrix, row_idx + 1, col_idx + 1, player_idx)
-
-    return result
-
-
-def search_horizontal(matrix, row_idx, col_idx, player_idx):
-    current_matrix = copy.deepcopy(matrix)
-    result = 0
-
-    if row_idx < 0 or col_idx < 0 or row_idx >= len(current_matrix) or col_idx >= len(current_matrix[0]):
-        return 0
-    if current_matrix[row_idx][col_idx] != player_idx:
-        return 0
-
-    current_matrix[row_idx][col_idx] = 'v'
-    result += 1
-    if result == 4:
-        return result
-
-    result += search_horizontal(current_matrix, row_idx, col_idx - 1, player_idx)
-    result += search_horizontal(current_matrix, row_idx, col_idx + 1, player_idx)
-
-    return result
-
-
-def search_vertical(matrix, row_idx, col_idx, player_idx):
-    current_matrix = copy.deepcopy(matrix)
-    result = 0
-
-    if row_idx < 0 or col_idx < 0 or row_idx >= len(current_matrix) or col_idx >= len(current_matrix[0]):
-        return 0
-    if current_matrix[row_idx][col_idx] != player_idx:
-        return 0
-
-    current_matrix[row_idx][col_idx] = 'v'
-    result += 1
-    if result == 4:
-        return result
-
-    result += search_vertical(current_matrix, row_idx - 1, col_idx, player_idx)
-    result += search_vertical(current_matrix, row_idx + 1, col_idx, player_idx)
+    result += search_direction(current_matrix, row_idx + coords[0], col_idx + coords[1], player_idx, direction)
+    result += search_direction(current_matrix, row_idx - coords[0], col_idx - coords[1], player_idx, direction)
 
     return result
 
@@ -131,21 +77,13 @@ def search_vertical(matrix, row_idx, col_idx, player_idx):
 def explore_if_four_connected(matrix, row_idx, column_idx, player_idx):
     player_won = False
     max_score = 0
-    current_result_row = search_vertical(matrix, row_idx, column_idx, player_idx)
-    if current_result_row > max_score:
-        max_score = current_result_row
-    current_result_column = search_horizontal(matrix, row_idx, column_idx, player_idx)
-    if current_result_column > max_score:
-        max_score = current_result_column
-    current_result_primary_diagonal = search_primary_diagonal(matrix, row_idx, column_idx, player_idx)
-    if current_result_primary_diagonal > max_score:
-        max_score = current_result_primary_diagonal
-    current_result_sec_diagonal = search_secondary_diagonal(matrix, row_idx, column_idx, player_idx)
-    if current_result_sec_diagonal > max_score:
-        max_score = current_result_sec_diagonal
-
-    if max_score >= 4:
-        player_won = True
+    for direction in directions.keys():
+        max_score = 0
+        current_result = search_direction(matrix, row_idx, column_idx, player_idx, direction)
+        if current_result > max_score:
+            max_score = current_result
+        if max_score >= 4:
+            player_won = True
 
     return player_won
 
@@ -195,7 +133,6 @@ while True:
 
     for line in field:
         print(line)
-    print(COLUMNS_HEADING)
 
     player_status = explore_if_four_connected(field, current_row, current_col, player_num)
 

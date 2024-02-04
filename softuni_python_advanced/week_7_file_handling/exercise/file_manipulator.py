@@ -29,6 +29,12 @@ def delete_file(filename):
         print("An error occurred")
 
 
+def rename_file(filename, new_filename):
+    if os.path.exists(filename):
+        os.rename(filename, new_filename)
+    else:
+        print("An error occurred")
+
 ABS_PATH_DIR = os.path.dirname(os.path.abspath(__file__))
 
 command = input().split('-')
@@ -46,5 +52,9 @@ while command[0] != 'End':
     elif command[0] == 'Delete':
         path = os.path.join(ABS_PATH_DIR, "..", "..", "resources", command[1])
         delete_file(path)
+    elif command[0] == 'Rename':
+        path = os.path.join(ABS_PATH_DIR, "..", "..", "resources", command[1])
+        renamed_file = os.path.join(ABS_PATH_DIR, "..", "..", "resources", command[2])
+        rename_file(path, renamed_file)
 
     command = input().split('-')
