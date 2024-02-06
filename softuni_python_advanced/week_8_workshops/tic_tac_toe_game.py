@@ -33,7 +33,7 @@ directions = {
 
 
 def check_if_field_full(matrix):
-    if " " in matrix[0]:
+    if turns <= 9:
         return True
     else:
         raise FieldFullError
@@ -97,6 +97,7 @@ def explore_if_three_connected(matrix, row_idx, column_idx, player_idx):
 field = [[" "] * COLUMNS for _ in range(ROWS)]
 players = deque()
 player_counter = 0
+turns = 0
 
 while True:
     player_counter += 1
@@ -127,6 +128,7 @@ while True:
 while True:
     current_player = players.popleft()
     player, player_sign = current_player
+    turns += 1
     while True:
 
         try:
