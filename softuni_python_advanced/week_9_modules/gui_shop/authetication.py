@@ -1,8 +1,19 @@
 from tkmacosx import Button
 from tkinter import Entry
 from canvas import root, frame
-from helpers import clean_screen
+from helpers import clean_screen, get_password_hash
+from softuni_python_advanced.week_9_modules.gui_shop.buying_page import display_products
+from json import dump, loads
 
+
+def get_users_data():
+    info_data = []  # [{}, {}, ...]
+
+    with open("db/users_information.txt", "r") as users_file:
+        for line in users_file:
+            info_data.append(loads(line))
+
+    return info_data
 
 
 def starting_screen():
@@ -80,7 +91,11 @@ def registration_of_user():
     }
 
     if verify_registration_data(user_data_dict):
-        pass
+        with open("db/users_information.txt", "a") as users_file:
+            user_data_dict["Password"] = get_password_hash(user_data_dict["Password"])
+            dump(user_data_dict, users_file)
+            users_file.write("\n")
+            display_products()
 
 
 
@@ -99,8 +114,63 @@ def verify_registration_data(user_data_dict):
 
             return False
 
-def logging_user_in_shop():
-    pass
+    users_data = get_users_data()
+
+    for user in users_data:
+        if user["Username"] == user_data_dict["Username"]:
+            frame.create_text(
+                200,
+                300,
+                text="Username is already taken!",
+                fill="red",
+                tags="error",
+            )
+
+            return False
+
+    return True
+
+def logging():
+    if check_login():
+        display_products()
+    else:
+        frame.create_text(
+            200,
+            200,
+            text="Invalid username or password!",
+            fill="red",
+            tags="error",
+        )
+
+
+def check_login():
+    users_data = get_users_data()
+
+    user_username = username_box.get()
+    user_password = get_password_hash(password_box.get())
+
+    for user in users_data:
+        current_user_username = user["Username"]
+        current_user_password = user["Password"]
+
+        if current_user_username == user_username and current_user_password == user_password:
+            return True
+
+    return False
+
+
+def change_login_button_status(event):
+    info = [
+        username_box.get(),
+        password_box.get(),
+    ]
+
+    for el in info:
+        if not el.strip():
+            login_button["state"] = "disabled"
+            break
+    else:
+        login_button["state"] = "normal"
 
 
 first_name_box = Entry(root, bd=0)
@@ -114,7 +184,9 @@ login_button = Button(
     bg="blue",
     fg="white",
     bd=0,
-    command=logging_user_in_shop,
+    command=logging,
 )
 
 login_button["state"] = "disabled"
+
+root.bind("<KeyRelease>", change_login_button_status)
