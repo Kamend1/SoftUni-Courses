@@ -15,14 +15,25 @@ class Band:
         return f"Band {self.name} has added their newest album {album.name}."
 
     def remove_album(self, album_name: str):
-        for album in self.albums:
-            if album.name == album_name and album.published == False:
-                self.albums.remove(album)
-                return f"Album {album_name} has been removed."
-            elif album.published == True:
-                return "Album has been published. It cannot be removed."
+        try:
+            album = next(filter(lambda x: x.name == album_name, self.albums))
+        except StopIteration:
+            return f"Album {album_name} is not found."
 
-        return f"Album {album_name} is not found."
+        if album.published:
+            return "Album has been published. It cannot be removed."
+
+        self.albums.remove(album)
+
+        return f"Album {album_name} has been removed."
+
+        # for album in self.albums:
+        #     if album.name == album_name and album.published == False:
+        #         self.albums.remove(album)
+        #         return f"Album {album_name} has been removed."
+        #     elif album.published == True:
+        #         return "Album has been published. It cannot be removed."
+        # return f"Album {album_name} is not found."
 
     def details(self):
         result = f"Band {self.name}"
