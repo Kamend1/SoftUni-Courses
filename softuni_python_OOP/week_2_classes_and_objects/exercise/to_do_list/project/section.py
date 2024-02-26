@@ -15,11 +15,19 @@ class Section:
         return f"Task {new_task.details()} is added to the section"
 
     def complete_task(self, task_name: str):
-        for task in self.tasks:
-            if task.name == task_name:
-                task.completed = True
-                return f"Completed task {task_name}"
-        return f"Could not find task with the name {task_name}"
+        try:
+            task = next(filter(lambda x: x.name == task_name, self.tasks))
+        except StopIteration:
+            return f"Could not find task with the name {task_name}"
+
+        task.completed = True
+        return f"Completed task {task_name}"
+
+        # for task in self.tasks:
+        #     if task.name == task_name:
+        #         task.completed = True
+        #         return f"Completed task {task_name}"
+        # return f"Could not find task with the name {task_name}"
 
     def clean_section(self):
         completed_tasks = [task for task in self.tasks if task.completed]

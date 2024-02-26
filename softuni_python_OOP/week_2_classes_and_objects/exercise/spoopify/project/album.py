@@ -22,7 +22,7 @@ class Album:
         return result
 
     def add_song(self, song: Song):
-        if song.single == True:
+        if song.single:
             return f"Cannot add {song.name}. It's a single"
 
         if self.published == True:
