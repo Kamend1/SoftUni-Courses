@@ -1,5 +1,8 @@
+from typing import List
+
+
 class Vet:
-    animals = []
+    animals: List[str] = []
     space = 5
 
     def __init__(self, name):
@@ -23,5 +26,5 @@ class Vet:
         return f"{animal_name} not in the clinic"
 
     def info(self):
-        return f"{self.name} has {len(Vet.animals)} animals. {Vet.space - len(Vet.animals)} space left in clinic"
+        return f"{self.name} has {len(self.animals)} animals. {Vet.space - len(Vet.animals)} space left in clinic"
 
