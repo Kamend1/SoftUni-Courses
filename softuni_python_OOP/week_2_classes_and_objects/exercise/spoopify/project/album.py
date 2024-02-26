@@ -25,7 +25,7 @@ class Album:
         if song.single:
             return f"Cannot add {song.name}. It's a single"
 
-        if self.published == True:
+        if self.published:
             return "Cannot add songs. Album is published."
 
         if song in self.songs:
