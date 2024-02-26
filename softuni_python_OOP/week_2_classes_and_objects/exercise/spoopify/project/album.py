@@ -35,13 +35,21 @@ class Album:
         return f"Song {song.name} has been added to the album {self.name}."
 
     def remove_song(self, song_name: str):
-        if self.published == True:
+        try:
+            song = next(filter(lambda x: x.name == song_name, self.songs))
+        except StopIteration:
+            return "Song is not in the album."
+
+        if self.published:
             return "Cannot remove songs. Album is published."
 
-        for song in self.songs:
-            if song.name == song_name:
-                self.songs.remove(song)
-                return f"Removed song {song_name} from album {self.name}."
+        self.songs.remove(song)
 
-        return "Song is not in the album."
+        return f"Removed song {song_name} from album {self.name}."
 
+        # for song in self.songs:
+        #     if song.name == song_name:
+        #         self.songs.remove(song)
+        #         return f"Removed song {song_name} from album {self.name}."
+        #
+        # return "Song is not in the album."
