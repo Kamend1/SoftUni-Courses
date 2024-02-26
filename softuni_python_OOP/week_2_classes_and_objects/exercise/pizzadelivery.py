@@ -35,12 +35,13 @@ class PizzaDelivery:
 
     def make_order(self):
         if self.ordered:
-            return f"Pizza {self.name} already prepared, and we can't make any changes!"
+            return self.get_ordered_message()
 
         self.ordered = True
 
 
-        return (f"You've ordered pizza {self.name} prepared with {', '.join([f'{k}: {v}' for k, v in self.ingredients.items()])}"
+        return (f"You've ordered pizza {self.name} prepared "
+                f"with {', '.join([f'{k}: {v}' for k, v in self.ingredients.items()])}"
                 f" and the price will be {self.price}lv.")
 
 margarita = PizzaDelivery('Margarita', 11, {'cheese': 2, 'tomatoes': 1})
