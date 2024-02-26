@@ -27,6 +27,7 @@ class Band:
 
         return f"Album {album_name} has been removed."
 
+
         # for album in self.albums:
         #     if album.name == album_name and album.published == False:
         #         self.albums.remove(album)
