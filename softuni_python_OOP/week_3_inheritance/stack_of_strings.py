@@ -13,7 +13,7 @@ class Stack:
         return self.data[-1]
 
     def is_empty(self):
-        return True if self.data else False
+        return False if self.data else True
 
         # if len(self.data) == 0:
         #     is_empty = True
