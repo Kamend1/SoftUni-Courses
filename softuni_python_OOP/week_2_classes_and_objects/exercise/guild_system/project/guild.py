@@ -11,7 +11,7 @@ class Guild:
         if player in self.players:
             return f"Player {player.name} is already in the guild."
 
-        if player.guild != "Unaffiliated":
+        if player.guild != player.DEFAULT_GUILD:
             return f"Player {player.name} is in another guild."
 
         player.guild = self.name
@@ -21,7 +21,7 @@ class Guild:
     def kick_player(self, player_name: str):
         for player in self.players:
             if player.name == player_name:
-                player.guild = "Unaffiliated"
+                player.guild = player.DEFAULT_GUILD
                 self.players.remove(player)
                 return f"Player {player_name} has been removed from the guild."
 
