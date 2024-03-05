@@ -1,9 +1,9 @@
 class Dough:
 
     def __init__(self, flour_type: str, baking_technique: str, weight: float):
-        self.flour_type = flour_type
-        self.baking_technique = baking_technique
-        self.weight = weight
+        self.__flour_type = flour_type
+        self.__baking_technique = baking_technique
+        self.__weight = weight
 
     @property
     def flour_type(self):
