@@ -1,8 +1,8 @@
 class Topping:
 
     def __init__(self, topping_type: str, weight: float):
-        self.__topping_type = topping_type
-        self.__weight = weight
+        self.topping_type = topping_type
+        self.weight = weight
 
     @property
     def topping_type(self):
