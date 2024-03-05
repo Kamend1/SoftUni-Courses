@@ -11,10 +11,6 @@ class Player:
     def name(self):
         return self.__name
 
-    @name.setter
-    def name(self, value):
-        self.__name = value
-
     def __str__(self):
         result = "Player: " + self.name + "\n" + \
                  "Sprint: " + str(self.__sprint) + "\n" + \
