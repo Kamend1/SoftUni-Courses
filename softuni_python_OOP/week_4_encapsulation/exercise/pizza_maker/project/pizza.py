@@ -6,9 +6,9 @@ from project.topping import Topping
 class Pizza:
 
     def __init__(self, name: str, dough: Dough, max_number_of_toppings: int):
-        self.name = name
-        self.dough = dough
-        self.max_number_of_toppings = max_number_of_toppings
+        self.__name = name
+        self.__dough = dough
+        self.__max_number_of_toppings = max_number_of_toppings
         self.toppings = {}
 
     @property
