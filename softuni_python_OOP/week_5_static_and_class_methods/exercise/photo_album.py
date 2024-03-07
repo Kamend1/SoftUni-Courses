@@ -2,6 +2,8 @@ from math import ceil
 
 class PhotoAlbum:
     MAX_PHOTOS_PER_PAGE = 4
+    DASHES = 11
+    SYMBOL_FOR_LINE = '-'
 
     def __init__(self, pages: int):
         self.pages = pages
@@ -9,7 +11,7 @@ class PhotoAlbum:
 
     @classmethod
     def from_photos_count(cls, photos_count: int):
-        return cls(ceil(photos_count / 4))
+        return cls(ceil(photos_count / cls.MAX_PHOTOS_PER_PAGE))
 
     def add_photo(self, label: str):
 
@@ -21,15 +23,15 @@ class PhotoAlbum:
         return "No more free slots"
 
     def display(self):
-        result = "-----------\n"
+        result = self.SYMBOL_FOR_LINE * self.DASHES + "\n"
         for row in range(len(self.photos)):
-            result += " ".join("[]" for label in self.photos[row])
-            result += "\n-----------\n"
+            result += " ".join("[]" for _ in self.photos[row])
+            result += "\n" + self.SYMBOL_FOR_LINE * self.DASHES + "\n"
 
         return result
 
 # album = PhotoAlbum(3)
-
+#
 # print(album.add_photo("baby"))
 # print(album.add_photo("first grade"))
 # print(album.add_photo("eight grade"))
@@ -37,7 +39,7 @@ class PhotoAlbum:
 # print(album.photos)
 # print(album.add_photo("prom"))
 # print(album.add_photo("wedding"))
-
+#
 # for _ in range(8):
 #     album.add_photo("asdf")
 # print(album.display().strip())
