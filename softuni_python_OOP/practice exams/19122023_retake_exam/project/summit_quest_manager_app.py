@@ -83,7 +83,7 @@ class SummitQuestManagerApp:
             for peak in climber.conquered_peaks:
                 conquered_peaks.add(peak)
 
-        result = "Total climbed peaks:" + str(conquered_peaks) + "\n**Climber's statistics:**\n" \
+        result = "Total climbed peaks: " + str(len(conquered_peaks)) + "\n**Climber's statistics:**\n" \
                  + '\n'.join(str(climber) for climber in sorted_climbers)
 
         return result
