@@ -3,6 +3,10 @@ from abc import ABC, abstractmethod
 
 class Vehicle(ABC):
 
+    def __init__(self, fuel_quantity, fuel_consumption):
+        self.fuel_quantity = fuel_quantity
+        self.fuel_consumption = fuel_consumption
+
     @abstractmethod
     def drive(self, distance):
         pass
@@ -15,9 +19,9 @@ class Vehicle(ABC):
 class Car(Vehicle):
     AIR_CONDITION_FUEL_CONSUMPTION = 0.9
 
-    def __init__(self, fuel_quantity, fuel_consumption):
-        self.fuel_quantity = fuel_quantity
-        self.fuel_consumption = fuel_consumption
+    # def __init__(self, fuel_quantity, fuel_consumption):
+    #     self.fuel_quantity = fuel_quantity
+    #     self.fuel_consumption = fuel_consumption
 
     def drive(self, distance):
         if self.fuel_quantity < (self.fuel_consumption + self. AIR_CONDITION_FUEL_CONSUMPTION) * distance:
@@ -33,9 +37,9 @@ class Truck(Vehicle):
     AIR_CONDITION_FUEL_CONSUMPTION = 1.6
     RETAIN_FUEL_FACTOR = 0.95
 
-    def __init__(self, fuel_quantity, fuel_consumption):
-        self.fuel_quantity = fuel_quantity
-        self.fuel_consumption = fuel_consumption
+    # def __init__(self, fuel_quantity, fuel_consumption):
+    #     self.fuel_quantity = fuel_quantity
+    #     self.fuel_consumption = fuel_consumption
 
     def drive(self, distance):
         if self.fuel_quantity < (self.fuel_consumption + self.AIR_CONDITION_FUEL_CONSUMPTION) * distance:
