@@ -1,4 +1,4 @@
-from math import ceil
+# from math import ceil
 
 
 class sequence_repeat:
@@ -7,7 +7,7 @@ class sequence_repeat:
         self.sequence = sequence
         self.count = count
         self.index = -1
-        self.repeated_sequence = sequence * ceil(self.count / len(self.sequence) )
+        # self.repeated_sequence = sequence * ceil(self.count / len(self.sequence) )
 
     def __iter__(self):
         return self
@@ -16,7 +16,7 @@ class sequence_repeat:
         if self.count > 0:
             self.index += 1
             self.count -= 1
-            return self.repeated_sequence[self.index]
+            return self.sequence[self.index % len(self.sequence)]
         raise StopIteration
 
 result = sequence_repeat('abc', 5)

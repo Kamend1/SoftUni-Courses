@@ -13,7 +13,7 @@ class countdown_iterator:
             return current
         raise StopIteration
 
+
 iterator = countdown_iterator(10)
 for item in iterator:
     print(item, end=" ")
-

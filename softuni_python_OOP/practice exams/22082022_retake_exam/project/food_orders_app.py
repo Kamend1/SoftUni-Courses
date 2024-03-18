@@ -54,14 +54,14 @@ class FoodOrdersApp:
             meal = next(filter(lambda m: m.name == meal_name, self.menu), None)
             if not meal:
                 client.shopping_cart = []
-                ordered_foods = []
+                client.ordered_foods = []
                 valid_order = False
                 raise Exception(f"{meal_name} is not on the menu!")
 
             if meal.quantity < quantity:
                 valid_order = False
                 client.shopping_cart = []
-                ordered_foods = []
+                client.ordered_foods = []
                 raise Exception(f"Not enough quantity of {meal.TYPE_}: {meal_name}!")
 
 
