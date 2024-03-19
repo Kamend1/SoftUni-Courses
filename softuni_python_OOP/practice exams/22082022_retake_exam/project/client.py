@@ -11,7 +11,7 @@ class Client:
         self.phone_number = phone_number
         self.bill = 0.00
         self.shopping_cart: List[Dessert: Meal, MainDish: Meal, Starter: Meal] = []
-        self.ordered_food = []
+        self.ordered_food = {}
 
     @property
     def phone_number(self):

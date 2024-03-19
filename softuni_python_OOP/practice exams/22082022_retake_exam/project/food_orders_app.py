@@ -39,8 +39,6 @@ class FoodOrdersApp:
         return '\n'.join(result)
 
     def add_meals_to_shopping_cart(self, client_phone_number: str, **meal_names_and_quantities):
-        valid_order = True
-
         if len(self.menu) < 5:
             raise Exception("The menu is not ready!")
 
@@ -49,33 +47,29 @@ class FoodOrdersApp:
             self.register_client(client_phone_number)
             client = next(filter(lambda c: c.phone_number == client_phone_number, self.clients_list))
 
-        for food in meal_names_and_quantities.items():
-            meal_name, quantity = food[0], food[1]
+        ordered_food = {}
+
+        for meal_name, quantity in meal_names_and_quantities.items():
             meal = next(filter(lambda m: m.name == meal_name, self.menu), None)
-            if not meal:
-                client.shopping_cart = []
-                client.ordered_foods = []
-                valid_order = False
+            if meal:
+                if meal.quantity >= quantity:
+                    ordered_food[meal.name] = ordered_food.get(meal_name, 0) + quantity
+                else:
+                    ordered_food = {}
+                    raise Exception(f"Not enough quantity of {meal.TYPE_}: {meal_name}!")
+            else:
+                ordered_food = {}
                 raise Exception(f"{meal_name} is not on the menu!")
 
-            if meal.quantity < quantity:
-                valid_order = False
-                client.shopping_cart = []
-                client.ordered_foods = []
-                raise Exception(f"Not enough quantity of {meal.TYPE_}: {meal_name}!")
+        for meal_name, quantity in ordered_food.items():
+            meal = next(filter(lambda m: m.name == meal_name, self.menu))
+            client.shopping_cart.append(meal)
+            client.bill += meal.price * quantity
+            meal.quantity -= quantity
+            client.ordered_food[meal.name] = client.ordered_food.get(meal_name, 0) + quantity
 
-
-        if valid_order:
-            for meal_name, quantity in meal_names_and_quantities.items():
-                meal = next(filter(lambda m: m.name == meal_name, self.menu), None)
-                meal.quantity -= quantity
-                for _ in range(quantity):
-                    client.shopping_cart.append(meal)
-                    client.bill += meal.price
-
-        client.ordered_food.extend([food for food in meal_names_and_quantities.keys()])
         return (f"Client {client_phone_number} successfully ordered "
-                f"{', '.join(client.ordered_food)} for {client.bill:.2f}lv.")
+                f"{', '.join(meal.name for meal in client.shopping_cart)} for {client.bill:.2f}lv.")
 
     def cancel_order(self, client_phone_number: str):
         client = next(filter(lambda c: c.phone_number == client_phone_number, self.clients_list))
@@ -83,12 +77,14 @@ class FoodOrdersApp:
         if not client.shopping_cart:
             raise Exception("There are no ordered meals!")
 
-        for meal in client.shopping_cart:
-            meal.quantity += 1
+        for meal_name, quantity in client.ordered_food.items():
+            meal = next(filter(lambda m: m.name == meal_name, self.menu))
+            meal.quantity += quantity
 
         client.bill = 0.00
         client.shopping_cart = []
-        client.ordered_food = []
+        client.ordered_food = {}
+
         return f"Client {client.phone_number} successfully canceled his order."
 
     def finish_order(self, client_phone_number: str):
@@ -99,7 +95,8 @@ class FoodOrdersApp:
 
         bill = client.bill
         client.shopping_cart = []
-        client.ordered_food = []
+        client.ordered_food = {}
+
         client.bill = 0.00
         self.RECEIPT_ID += 1
         return (f"Receipt #{self.RECEIPT_ID} with total amount of "
