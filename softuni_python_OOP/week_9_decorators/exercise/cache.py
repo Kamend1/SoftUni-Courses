@@ -1,12 +1,13 @@
 def cache(func):
-    log = {}
 
     def wrapper(param):
-        nonlocal log
-        wrapper.log = log
-        if param not in log:  # Check if the result for the current parameter is already cached
-            log[param] = func(param)  # Compute and cache the result
-        return log[param]  # Return the cached result
+
+        if not wrapper.log.get(param):  # Check if the result for the current parameter is already cached
+            wrapper.log[param] = func(param)  # Compute and cache the result
+
+        return wrapper.log[param]  # Return the cached result
+
+    wrapper.log = {}
 
     return wrapper
 
