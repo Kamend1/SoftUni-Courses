@@ -16,4 +16,4 @@ def loop(start, end):
     for x in range(start, end):
         total += x
     return total
-print(loop(1, 10000000))
+print(loop(1, 1_100_000_000))
