@@ -5,43 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7dd2c720-35c8-438f-af9b-490bb9357ce6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/.idea/softuni_python_OOP.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/practice exams/10122022_regular_exam/problem_3/project/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/practice exams/10122022_regular_exam/problem_3/project/test.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/practice exams/10122022_regular_exam/problem_3/project/test/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/practice exams/10122022_regular_exam/problem_3/project/test/test_toy_store.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/practice exams/10122022_regular_exam/problem_3/project/toy_store.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/practice exams/19122022_retake_exam/problem_3/project/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/practice exams/19122022_retake_exam/problem_3/project/test.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/practice exams/19122022_retake_exam/problem_3/project/test/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/practice exams/19122022_retake_exam/problem_3/project/test/test_truck_driver.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/practice exams/19122022_retake_exam/problem_3/project/truck_driver.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/practice exams/22082022_retake_exam/problem_3/project/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/practice exams/22082022_retake_exam/problem_3/project/shopping_cart.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/practice exams/22082022_retake_exam/problem_3/project/test/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/practice exams/22082022_retake_exam/problem_3/project/test/test_shopping.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/regular_exam/project/campaigns/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/regular_exam/project/campaigns/base_campaign.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/regular_exam/project/campaigns/high_budget_campaign.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/regular_exam/project/campaigns/low_budget_campaign.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/regular_exam/project/influencer_manager_app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/regular_exam/project/influencers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/regular_exam/project/influencers/base_influencer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/regular_exam/project/influencers/premium_influencer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/regular_exam/project/influencers/standard_influencer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/regular_exam/project/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_OOP/week_9_decorators/exercise/project/.idea/project.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../softuni_python_advanced/week_11_exam_preparation/.idea/week_11_exam_preparation.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm1/.idea/orm1.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm2/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm2/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm2/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm2/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm2/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm2/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm2/.idea/orm2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm2/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm2/pack.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../orm_3_exercise/pack.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fbb4e27b-f5c5-4a40-a21a-418a7b170ed5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fbb4e27b-f5c5-4a40-a21a-418a7b170ed5/storage_v2/_src_/database/orm3.iS40AA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fbb4e27b-f5c5-4a40-a21a-418a7b170ed5/storage_v2/_src_/database/orm3.iS40AA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fbb4e27b-f5c5-4a40-a21a-418a7b170ed5/storage_v2/_src_/database/orm3.iS40AA/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fbb4e27b-f5c5-4a40-a21a-418a7b170ed5/storage_v2/_src_/database/orm3.iS40AA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fbb4e27b-f5c5-4a40-a21a-418a7b170ed5/storage_v2/_src_/database/orm3.iS40AA/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fbb4e27b-f5c5-4a40-a21a-418a7b170ed5/storage_v2/_src_/database/orm3.iS40AA/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fbb4e27b-f5c5-4a40-a21a-418a7b170ed5/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fbb4e27b-f5c5-4a40-a21a-418a7b170ed5/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,8 +39,9 @@
     "Python.caller.executor": "Run",
     "Python.pack.executor": "Run",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/kamen.dimitrov/PycharmProjects/SoftUni-Courses/softuni_python_db_django_ORM/orm3",
+    "last_opened_file_path": "C:/Users/kamen.dimitrov/PycharmProjects/SoftUni-Courses/softuni_python_db_django_ORM/orm4",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -178,6 +153,7 @@
       <workItem from="1718782618041" duration="405000" />
       <workItem from="1718790719294" duration="2286000" />
       <workItem from="1719160149403" duration="4856000" />
+      <workItem from="1719317224489" duration="58000" />
     </task>
     <servers />
   </component>

@@ -4,40 +4,56 @@ from django.db import migrations
 
 
 def define_phone_price(apps, schema_editor):
+    MULTIPLIER = 120
+
     phone = apps.get_model('main_app', 'Smartphone')
     phones = phone.objects.all()
+
     for phone in phones:
-        phone.price = len(phone.brand) * 120
-        phone.save()
+        phone.price = MULTIPLIER * 120
+        # phone.save()
+
+    phone.objects.bulk_update(phones, ['price'])
 
 
 def reverse_phone_price(apps, schema_editor):
+
     phone = apps.get_model('main_app', 'Smartphone')
     phones = phone.objects.all()
+
     for phone in phones:
-        phone.price = 0
-        phone.save()
+        phone.price = phone._meta.get_field('price').default
+        # phone.save()
+
+    phone.objects.bulk_update(phones, ['price'])
 
 
 def define_phone_category(apps, schema_editor):
+    UPPER_DELIMITER = 750
+
     phone = apps.get_model('main_app', 'Smartphone')
     phones = phone.objects.all()
+
     for phone in phones:
-        if phone.price >= 750:
+        if phone.price >= UPPER_DELIMITER:
             phone.category = "Expensive"
-            phone.save()
+            # phone.save()
         else:
             phone.category = "Cheap"
-            phone.save()
+            # phone.save()
 
+    phone.objects.bulk_update(phones,['category'])
 
 def reverse_phone_category(apps, schema_editor):
+
     phone = apps.get_model('main_app', 'Smartphone')
     phones = phone.objects.all()
-    for phone in phones:
-        phone.category = "No category"
-        phone.save()
 
+    for phone in phones:
+        phone.category = phone._meta.get_field('category').default
+        # phone.save()
+
+    phone.objects.bulk_update(phones, ['category'])
 
 class Migration(migrations.Migration):
 
