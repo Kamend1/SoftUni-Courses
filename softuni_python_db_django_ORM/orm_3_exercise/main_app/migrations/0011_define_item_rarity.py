@@ -7,22 +7,27 @@ def define_item_rarity(apps, schema_editor):
     for item in items:
         if item.price <= 10:
             item.rarity = "Rare"
-            item.save()
+            # item.save()
         elif 11 <= item.price <= 20:
             item.rarity = "Very Rare"
-            item.save()
+            # item.save()
         elif 21 <= item.price <= 30:
             item.rarity = "Extremely Rare"
-            item.save()
+            # item.save()
         else:
             item.rarity = "Mega Rare"
-            item.save()
+            # item.save()
+        item.objects.bulk_update(items, ['rarity'])
+
+
 def reverse_item_rarity(apps, schema_editor):
     item = apps.get_model('main_app', 'Item')
     items = item.objects.all()
     for item in items:
-        item.rarity = "No rarity"
-        item.save()
+        item.rarity = item._meta.get_field('rarity').default
+        # item.save()
+    item.objects.bulk_update(items, ['rarity'])
+
 
 class Migration(migrations.Migration):
 
