@@ -5,39 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7dd2c720-35c8-438f-af9b-490bb9357ce6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/orm3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/.idea/orm_4_exercise.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/caller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/main_app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/main_app/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/main_app/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/main_app/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/main_app/migrations/0002_artifact.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/main_app/migrations/0003_location.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/main_app/migrations/0004_car.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/main_app/migrations/0005_task.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/main_app/migrations/0006_hotelroom.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/main_app/migrations/0007_character.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/main_app/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/main_app/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/main_app/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/main_app/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/manage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/orm_skeleton/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/orm_skeleton/asgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/orm_skeleton/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/orm_skeleton/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/orm_skeleton/wsgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/pack.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../orm_4_exercise/submission-16-30_25.06.24.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../orm_5_exercise/submission-11-50_01.07.24.zip" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,28 +25,28 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.caller.executor&quot;: &quot;Run&quot;,
-    &quot;Python.pack.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/kamen.dimitrov/PycharmProjects/SoftUni-Courses/softuni_python_db_django_ORM/orm4&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.caller.executor": "Run",
+    "Python.pack.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/kamen.dimitrov/PycharmProjects/pythonProject",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Python.pack">
     <configuration name="caller" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="orm3" />
