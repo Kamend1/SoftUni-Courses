@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2dceb706-5fb8-44dc-96b9-8df16e583f2a" name="Changes" comment="" />
+    <list default="true" id="2dceb706-5fb8-44dc-96b9-8df16e583f2a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../orm1/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orm1/.idea/dataSources/cc392831-59b0-44cc-91db-8a9ff9a9d5d1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orm1/.idea/dataSources/cc392831-59b0-44cc-91db-8a9ff9a9d5d1/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orm1/.idea/dataSources/cc392831-59b0-44cc-91db-8a9ff9a9d5d1/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orm1/.idea/orm1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../orm1/.idea/orm1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orm1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../orm1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orm1/orm_skeleton/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../orm1/orm_skeleton/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orm_skeleton/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/orm_skeleton/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orm_6_exercise/orm_skeleton/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../orm_6_exercise/orm_skeleton/settings.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,13 +52,13 @@
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/kamen.dimitrov/PycharmProjects/SoftUni-Courses/softuni_python_db_django_ORM/orm_3_exercise",
+    "last_opened_file_path": "C:/Users/kamen.dimitrov/PycharmProjects/SoftUni-Courses/softuni_python_db_django_ORM/orm3",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -133,6 +145,7 @@
       <workItem from="1718782591982" duration="14000" />
       <workItem from="1719244356217" duration="13000" />
       <workItem from="1719244839599" duration="48000" />
+      <workItem from="1719983513165" duration="49000" />
     </task>
     <servers />
   </component>

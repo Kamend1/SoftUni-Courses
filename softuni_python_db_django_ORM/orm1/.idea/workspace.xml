@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45b190c9-6b05-43a3-b17a-6da9e1875129" name="Changes" comment="" />
+    <list default="true" id="45b190c9-6b05-43a3-b17a-6da9e1875129" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cc392831-59b0-44cc-91db-8a9ff9a9d5d1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cc392831-59b0-44cc-91db-8a9ff9a9d5d1/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cc392831-59b0-44cc-91db-8a9ff9a9d5d1/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/orm1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/orm1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orm_skeleton/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/orm_skeleton/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orm_6_exercise/orm_skeleton/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../orm_6_exercise/orm_skeleton/settings.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +41,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/kamen.dimitrov/PycharmProjects/SoftUni-Courses/softuni_python_db_django_ORM/orm1/venv",
+    "last_opened_file_path": "C:/Users/kamen.dimitrov/PycharmProjects/SoftUni-Courses/softuni_python_db_django_ORM/orm2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -78,7 +87,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-09665e90c3a7-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.15026.15" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-PY-241.15989.155" />
+        <option value="bundled-python-sdk-babbdf50b680-7c6932dee5e4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.15989.155" />
       </set>
     </attachedChunks>
   </component>
@@ -93,6 +103,7 @@
       <workItem from="1718695310915" duration="4910000" />
       <workItem from="1718700402937" duration="760000" />
       <workItem from="1718705448108" duration="893000" />
+      <workItem from="1719983430488" duration="82000" />
     </task>
     <servers />
   </component>
