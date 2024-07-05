@@ -40,7 +40,7 @@ class Driver(models.Model):
 
 
 class DrivingLicense(models.Model):
-    license_number = models.CharField(max_length=10)
+    license_number = models.CharField(max_length=10, unique=True)
     issue_date = models.DateField()
     driver = models.OneToOneField(Driver, on_delete=models.CASCADE, related_name='license')
 
@@ -56,6 +56,6 @@ class Car(models.Model):
 
 
 class Registration(models.Model):
-    registration_number = models.CharField(max_length=10)
+    registration_number = models.CharField(max_length=10, unique=True)
     registration_date = models.DateField(blank=True, null=True)
     car = models.OneToOneField(Car, on_delete=models.CASCADE, blank=True, null=True, related_name='registration')

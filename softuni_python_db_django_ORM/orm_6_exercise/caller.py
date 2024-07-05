@@ -27,11 +27,13 @@ def show_all_authors_with_their_books() -> str:
 
 
 def delete_all_authors_without_books() -> None:
-    authors = Author.objects.all()
-
-    for a in authors:
-        if a.book_set.all().count() > 0:
-            a.delete()
+    # authors = Author.objects.all()
+    #
+    # for a in authors:
+    #     if a.book_set.all().count() == 0:
+    #         a.delete()
+    #
+    Author.objects.filter(book__isnull=True).delete()
 
 
 def add_song_to_artist(artist_name: str, song_title: str) -> None:
@@ -69,13 +71,13 @@ def get_reviews_with_high_ratings(threshold: int) -> QuerySet:
 
 
 def get_products_with_no_reviews() -> QuerySet:
-    products_without_reviews = Product.objects.annotate(count_reviews=Count('reviews')).filter(count_reviews=0).order_by('-name')
-    return products_without_reviews
-
+    # products_without_reviews = Product.objects.annotate(count_reviews=Count('reviews')).filter(count_reviews=0).order_by('-name')
+    # return products_without_reviews
+    return Product.objects.filter(reviews__isnull=True).order_by('-name')
 
 def delete_products_without_reviews():
-    Product.objects.annotate(count_reviews=Count('reviews')).filter(count_reviews=0).delete()
-
+    # Product.objects.annotate(count_reviews=Count('reviews')).filter(count_reviews=0).delete()
+    get_products_with_no_reviews().delete()
 
 def calculate_licenses_expiration_dates() -> str:
     licenses = DrivingLicense.objects.annotate(expiration_date=F('issue_date') + timedelta(days=365)).order_by('-license_number')
@@ -131,6 +133,7 @@ def register_car_by_owner(owner: Owner) -> str:
 # )
 
 # print(show_all_authors_with_their_books())
+# delete_all_authors_without_books()
 
 # # Create artists
 # artist1 = Artist.objects.create(name="Daniel Di Angelo")
