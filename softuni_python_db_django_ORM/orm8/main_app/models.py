@@ -3,6 +3,8 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.core.validators import MinLengthValidator, MaxLengthValidator, MinValueValidator, MaxValueValidator
 
+from main_app.validators import validate_menu_categories
+
 
 # Create your models here.
 class Restaurant(models.Model):
@@ -47,14 +49,6 @@ class Restaurant(models.Model):
             )
         ]
     )
-
-
-def validate_menu_categories(value):
-    menu_categories = ["Appetizers", "Main Course", "Desserts"]
-
-    for category in menu_categories:
-        if category not in value:
-            raise ValidationError('The menu must include each of the categories "Appetizers", "Main Course", "Desserts".')
 
 
 class Menu(models.Model):
