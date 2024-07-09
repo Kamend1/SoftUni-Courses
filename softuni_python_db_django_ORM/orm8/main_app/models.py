@@ -71,6 +71,7 @@ class RestaurantReview(ReviewMixin):
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
 
     class Meta(ReviewMixin.Meta):
+        abstract = True
         verbose_name = 'Restaurant Review'
         verbose_name_plural = 'Restaurant Reviews'
         unique_together = ['reviewer_name', 'restaurant']
