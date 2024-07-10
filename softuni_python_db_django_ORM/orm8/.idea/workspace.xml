@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="761238f1-6a8a-461f-9903-a3a8b8fd1e8b" name="Changes" comment="corrected - create validators py file and putting the custom validator in it">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3071abb7-339c-4ee5-b0bb-9a535fd4a43d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3071abb7-339c-4ee5-b0bb-9a535fd4a43d.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3071abb7-339c-4ee5-b0bb-9a535fd4a43d/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3071abb7-339c-4ee5-b0bb-9a535fd4a43d/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/models.py" afterDir="false" />
-    </list>
+    <list default="true" id="761238f1-6a8a-461f-9903-a3a8b8fd1e8b" name="Changes" comment="corrected - create validators py file and putting the custom validator in it" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,7 +148,7 @@
       <option name="presentableId" value="Default" />
       <updated>1720501952195</updated>
       <workItem from="1720501953196" duration="9296000" />
-      <workItem from="1720517646375" duration="12366000" />
+      <workItem from="1720517646375" duration="12393000" />
     </task>
     <task id="LOCAL-00001" summary="corrected - create validators py file and putting the custom validator in it">
       <option name="closed" value="true" />
@@ -163,7 +158,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720539721206</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="corrected - create validators py file and putting the custom validator in it">
+      <option name="closed" value="true" />
+      <created>1720544914108</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1720544914108</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
