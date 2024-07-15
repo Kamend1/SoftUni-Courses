@@ -99,7 +99,8 @@ class Project(models.Model):
     technologies_used = models.ManyToManyField(Technology, related_name='projects')
 
     def get_programmers_with_technologies(self):
-        return Programmer.objects.filter(projects=self).prefetch_related('projects__technologies_used')
+        return self.programmers.prefetch_related('projects__technologies_used')
+
 
 class Programmer(models.Model):
     name = models.CharField(max_length=100)
@@ -135,7 +136,7 @@ class Task(models.Model):
 
     @classmethod
     def search_tasks(cls, query: str):
-        query_code = Q(title__contains=query) | Q(description__contains=query)
+        query_code = Q(title__icontains=query) | Q(description__icontains=query)
         return cls.objects.filter(query_code)
 
     @classmethod
