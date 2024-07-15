@@ -16,8 +16,11 @@ class RealEstateListingManager(models.Manager):
         return self.filter(bedrooms=bedrooms_count)
 
     def popular_locations(self):
-        popular_locations = self.values('location').annotate(location_count=Count('location')).order_by('-location_count', 'location')
-        return list(popular_locations)[:2]
+        return self.values('location').annotate(
+            location_count=Count('location')).order_by(
+            '-location_count',
+            'location'
+        )[:2]
 
 
 class VideoGameManager(models.Manager):
