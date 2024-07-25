@@ -1,6 +1,7 @@
 from django.core.validators import MinLengthValidator, MinValueValidator, MaxValueValidator
 from django.db import models
 from main_app.mixins import ContentPublishedOnMixin
+from main_app.managers import CustomAuthorManager
 
 
 # Create your models here.
@@ -23,6 +24,7 @@ class Author(models.Model):
 
     website = models.URLField(blank=True, null=True)
 
+    objects = CustomAuthorManager()
 
 class ArticleCategoryChoices(models.TextChoices):
     TECHNOLOGY = "Technology", "Technology"
@@ -42,7 +44,7 @@ class Article(ContentPublishedOnMixin):
         default=ArticleCategoryChoices.TECHNOLOGY,
     )
 
-    authors = models.ManyToManyField(Author, related_name="Articles")
+    authors = models.ManyToManyField(Author, related_name="articles")
 
 
 class Review(ContentPublishedOnMixin):

@@ -43,14 +43,10 @@ def swap_recipe_ingredients_by_name(first_recipe_name: str, second_recipe_name: 
     session = Session()
 
     try:
-        first_recipe = session.query(Recipe).filter_by(name=first_recipe_name).first()
-        second_recipe = session.query(Recipe).filter_by(name=second_recipe_name).first()
+        first_recipe = session.query(Recipe).filter_by(name=first_recipe_name).with_for_update.one()
+        second_recipe = session.query(Recipe).filter_by(name=second_recipe_name).with_for_update.one()
 
-        first_recipe_ingredients = first_recipe.ingredients
-        second_recipe_ingredients = second_recipe.ingredients
-
-        first_recipe.ingredients = second_recipe_ingredients
-        second_recipe.ingredients = first_recipe_ingredients
+        first_recipe.ingredients, second_recipe.ingredients = second_recipe.ingredients, first_recipe.ingredients
 
         session.commit()
 
@@ -75,9 +71,10 @@ def relate_recipe_with_chef_by_name(recipe_name: str, chef_name: str):
             raise ValueError(f"Chef '{chef_name}' not found.")
 
         if recipe.chef_id == chef.id:
-            return f"Recipe '{recipe_name}' is already related to Chef '{chef_name}'."
+            raise Exception(f"Recipe '{recipe_name}' is already related to Chef '{chef_name}'.")
 
-        recipe.chef_id = chef.id
+        # recipe.chef_id = chef.id
+        recipe.chef = chef
         session.commit()
         return f"Related recipe {recipe_name} with chef {chef_name}"
 
@@ -90,14 +87,14 @@ def relate_recipe_with_chef_by_name(recipe_name: str, chef_name: str):
 
 def get_recipes_with_chef():
     with Session() as session:
-        recipes = session.query(Recipe).filter(Recipe.chef_id is not None).all()
-
+        # recipes = session.query(Recipe).filter(Recipe.chef_id is not None).all()
+        recipes = session.query(Recipe.name, Chef.name.label('chef_name')).join(Chef, Recipe.chef).all()
         result = []
 
         if recipes:
-            for r in recipes:
-                chef = session.query(Chef).filter_by(id=r.chef_id).first()
-                result.append(f"Recipe: {r.name} made by chef: {chef.name}")
+            for recipy_name, chef_name in recipes:
+                # chef = session.query(Chef).filter_by(id=r.chef_id).first()
+                result.append(f"Recipe: {recipy_name} made by chef: {chef_name}")
 
             return '\n'.join(result)
         else:
