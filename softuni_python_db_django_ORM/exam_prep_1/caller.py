@@ -44,23 +44,22 @@ def get_top_director():
 
 
 def get_top_actor():
-    top_actor = Actor.objects.annotate(movies_count=Count('starring_movies')).order_by(
+    top_actor = Actor.objects.prefetch_related('starring_movies').annotate(
+        movies_count=Count('starring_movies'),
+        avg_rating=Avg('starring_movies__rating'),
+    ).order_by(
         '-movies_count',
         'full_name',
     ).first()
 
-    if top_actor is None:
+    if top_actor is None or not top_actor.starring_movies:
         return ""
 
-    top_actor_movies = Movie.objects.filter(starring_actor=top_actor)
-    top_actor_movies_avg_rating = top_actor_movies.aggregate(avg_rating=Avg('rating'))
-
-    if not top_actor_movies.exists():
-        return ""
+    top_actor_movies = '\n'.join(m.title for m in top_actor.starring_movies)
 
     return (f"Top Actor: {top_actor.full_name}, "
-            f"starring in movies: {', '.join(m.title for m in top_actor_movies)}, "
-            f"movies average rating: {top_actor_movies_avg_rating['avg_rating']:.1f}")
+            f"starring in movies: {top_actor_movies}, "
+            f"movies average rating: {top_actor.avg_rating:.1f}")
 
 
 def get_actors_by_movies_count():
