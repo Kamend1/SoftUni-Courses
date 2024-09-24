@@ -1,30 +1,24 @@
-budget_of_the_group = int(input())
-season_type = str(input())
-number_of_people = int(input())
+needed_income = int(input())
 
-discount = 0
-whole_price = 0
+price = 0
 
-if number_of_people <= 6:
-    discount = 0.1
-elif 7 <= number_of_people <= 11:
-    discount = 0.15
-else:
-    discount = 0.25
+while True:
+    cocktail_name = input()
+    if cocktail_name == "Party!":
+        print(f"We need {abs(price - needed_income):.2f} leva more.")
+        break
 
-if number_of_people % 2 == 0 and season_type != "Autumn":
-    discount += 0.05
+    number_cocktails = int(input())
+    current_price = len(cocktail_name) * number_cocktails
 
-if season_type == "Summer" or season_type == "Autumn":
-    whole_price = 4200 - 4200 * discount
-elif season_type == "Spring":
-    whole_price = 3000 - 3000 * discount
-elif season_type == "Winter":
-    whole_price = 2600 - 2600 * discount
+    if current_price % 2 == 1:
+        current_price *= 0.75
 
-difference = abs(budget_of_the_group - whole_price)
+    price += current_price
 
-if budget_of_the_group >= whole_price:
-    print(f"Yes! You have {difference:.2f} leva left.")
-else:
-    print(f"Not enough money! You need {difference:.2f} leva.")
+    if price >= needed_income:
+        print("Target acquired.")
+        break
+
+print(f"Club income - {price:.2f} leva.")
+
