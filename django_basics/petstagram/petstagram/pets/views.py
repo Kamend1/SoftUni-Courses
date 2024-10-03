@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from petstagram.pets.models import Pet
 
 # Create your views here.
 def add_pet(request):
@@ -7,9 +7,12 @@ def add_pet(request):
 
 
 def pet_details(request, username, pet_slug):
+    pet = Pet.objects.get(slug=pet_slug)
+    all_photos = pet.photo_set.all()
+
     context = {
-        'username': username,
-        'pet_slug': pet_slug,
+        'pet': pet,
+        'all_photos': all_photos,
     }
 
     return render(request, 'pets/pet-details-page.html', context)

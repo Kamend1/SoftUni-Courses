@@ -12,8 +12,10 @@ def login(request):
 
 def show_profile_details(request, pk):
 
+    # profile = User.objects.filter(pk=pk).first()
+
     context = {
-        'pk': pk
+        'pk': pk,
     }
 
     return render(request, 'accounts/profile-details-page.html', context)
