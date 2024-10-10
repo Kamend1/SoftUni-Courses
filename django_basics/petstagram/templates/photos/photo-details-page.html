@@ -124,27 +124,29 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <p>
-                                            <!-- Link to User Profile Details Page-->
-                                            <!-- User First and/or Last Name or username-->
-                                            <a href="">Steven Ivanov</a>
-                                            <!-- User Comment -->
-                                            {{ comment.text }}
-                                        </p>
+                                            <p>
+                                                <!-- Link to User Profile Details Page-->
+                                                <!-- User First and/or Last Name or username-->
+                                                <a href="">Steven Ivanov</a>
+                                                <!-- User Comment -->
+                                                {{ comment.text }}
+                                                <span>{{ comment.date_of_publication }}</span>
+                                            </p>
                                     </div>
-                                    <span>{{ comment.date_of_publication }}</span>
+                                    
                                 </div>
                             </div>
                         </div>
-                    
+                {% endfor %}    
                     <!-- End Comments Section -->
                     </div>
-                {% endfor %}
+                
                 <!-- Start Add Comments Section -->
                 <div class="addComments">
 
                     <!-- Start Add Comments Form -->
-                    <form method="post" action="{% url 'comment' photo.id %}">
+                    <form method="post" action="{% url 'comment' photo.pk %}">
+                        <label for="id_body">Body:</label>
                         {% csrf_token %}
                         {{ comment_form.as_p }}
                         <!-- Post Comments Button -->

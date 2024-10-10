@@ -1,0 +1,12 @@
+{% load static %}
+<nav>
+  <img src="{% static 'images/headphones.png' %}" alt="headphones" />
+  <a href="{% url 'home-page' %}">Home</a>
+  <ul></ul>
+  {% if profile %}
+  <ul>
+    <li><a href="{% url 'album-add' %}">Create Album</a></li>
+    <li><a href="{% url 'profile-details' %}">Profile</a></li>
+  </ul>
+  {% endif %}  
+</nav>

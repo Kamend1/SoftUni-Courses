@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect
 from petstagram.pets.models import Pet
-from petstagram.pets.forms import PetForm, PetDeleteForm
+from petstagram.pets.forms import PetAddForm, PetDeleteForm, PetEditForm
 from petstagram.common.forms import CommentForm
 
 
 # Create your views here.
 def add_pet(request):
-    form = PetForm(request.POST or None)
+    form = PetAddForm(request.POST or None)
 
     if form.is_valid():
         form.save()
@@ -37,9 +37,9 @@ def edit_pet(request, username, pet_slug):
     pet = Pet.objects.get(slug=pet_slug)
 
     if request.method == 'GET':
-        form = PetForm(instance=pet, initial=pet.__dict__)
+        form = PetEditForm(instance=pet, initial=pet.__dict__)
     else:
-        form = PetForm(request.POST, instance=pet)
+        form = PetEditForm(request.POST, instance=pet)
         if form.is_valid():
             form.save()
             return redirect('pet-details', username, pet_slug)
@@ -48,6 +48,7 @@ def edit_pet(request, username, pet_slug):
         'username': username,
         'pet_slug': pet_slug,
         'form': form,
+        'pet': pet,
     }
 
     return render(request, 'pets/pet-edit-page.html', context)
@@ -66,6 +67,7 @@ def delete_pet(request, username, pet_slug):
         'username': username,
         'pet_slug': pet_slug,
         'forms': form,
+        'pet': pet,
     }
 
     return render(request, 'pets/pet-delete-page.html', context)
