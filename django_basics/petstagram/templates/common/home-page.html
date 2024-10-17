@@ -6,9 +6,9 @@
         <div class="col-9">
 
             <!-- Start Searchbar Form -->
-            <form class="searchbar" method="post">
+            <form class="searchbar" method="get">
                 {% csrf_token %}
-                <input type="text" placeholder="Search by pet name...">
+                {{ search_form }}
                 <button>
                     <img src="{% static 'images/search.png' %}" height="18" alt="img2">
                 </button>
@@ -18,7 +18,40 @@
             <!-- Start Pet Photos Post Section -->
             {% include 'common/pet-posts.html' %}
             
+                       <!-- Start Pagination -->
+            <div class="pagination">
+                <span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                </span>
 
+                <span class="step-links-buttons">
+
+                    <!-- If there are previous and next photos -->
+                    {% if page_obj.has_previous and page_obj.has_next %}
+                        <a href="?page={{ page_obj.previous_page_number }}">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a>
+                        <a href="?page={{ page_obj.next_page_number }}">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    <!-- If there are only previous photos -->
+                    {% elif page_obj.has_previous %}
+                        <a href="?page={{ page_obj.previous_page_number }}">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a>
+
+                    <!-- If there are only next photos -->
+                    {% elif page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    {% endif %}
+
+                </span>
+            </div>
+            <!-- End Pagination -->
+        
         </div>
     </div>
 
