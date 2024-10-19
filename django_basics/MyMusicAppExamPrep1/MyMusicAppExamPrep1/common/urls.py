@@ -3,5 +3,5 @@ from MyMusicAppExamPrep1.common import views
 
 
 urlpatterns = [
-    path('', views.home_page, name='home-page')
+    path('', views.HomePageView.as_view(), name='home-page')
 ]

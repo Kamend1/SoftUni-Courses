@@ -17,5 +17,5 @@ class UserNameValidator:
         if not re.match(match_string, value):
             raise ValidationError(
                 self.message,
-                {'params': value}
+                # {'params': value}
             )

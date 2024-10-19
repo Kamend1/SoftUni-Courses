@@ -18,15 +18,27 @@
         <!-- Registration -->
     <section id="registerPage">
       <form method="POST">
-        <fieldset>
-          <legend>Profile</legend>
-          <!-- Form for Registration -->
-          {% csrf_token %}
-          {{ form.as_p }}  
-          <!-- Button to Create Profile -->
-          <button type="submit" class="register">Enter</button>
-        </fieldset>
-      </form>
+    <fieldset>
+        <legend>Profile</legend>
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div class="form-group">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.errors %}
+                    <div class="alert alert-danger">
+                        {% for error in field.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <button type="submit" class="register">Enter</button>
+    </fieldset>
+</form>
     </section>
 </div>
 {% endblock %}
