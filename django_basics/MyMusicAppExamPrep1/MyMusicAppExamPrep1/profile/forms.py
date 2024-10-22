@@ -1,9 +1,9 @@
 from django import forms
-
 from MyMusicAppExamPrep1.profile.models import Profile
+from MyMusicAppExamPrep1.mixins import ReadOnlyDisabledMixin
 
 
-class HomeProfileRegistrationForm(forms.ModelForm):
+class ProfileBaseForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['username', 'email', 'age']
@@ -19,4 +19,13 @@ class HomeProfileRegistrationForm(forms.ModelForm):
             'email': 'Email:',
             'age': 'Age:',
         }
+
+
+class HomeProfileRegistrationForm(ProfileBaseForm):
+    pass
+
+
+class ProfileDeleteForm(ProfileBaseForm, ReadOnlyDisabledMixin):
+    pass
+
 

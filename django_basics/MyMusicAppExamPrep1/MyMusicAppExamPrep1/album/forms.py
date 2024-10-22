@@ -1,6 +1,6 @@
 from django import forms
-
 from MyMusicAppExamPrep1.album.models import Album
+from MyMusicAppExamPrep1.mixins import ReadOnlyDisabledMixin
 
 
 class AlbumBaseForm(forms.ModelForm):
@@ -11,7 +11,7 @@ class AlbumBaseForm(forms.ModelForm):
         widgets = {
             'album_name': forms.TextInput(attrs={'placeholder': 'Album Name'}),
             'artist': forms.TextInput(attrs={'placeholder': 'Artist'}),
-            'genre': forms.MultipleChoiceField(),
+            'genre': forms.Select(),
             'description': forms.Textarea(attrs={'placeholder': 'Description'}),
             'image': forms.URLInput(attrs={'placeholder': 'Image URL'}),
             'price': forms.NumberInput(
@@ -40,10 +40,5 @@ class AlbumEditForm(AlbumBaseForm):
     pass
 
 
-class AlbumDeleteForm(AlbumBaseForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
-        for _, field in self.fields.items():
-            field.widget.attrs['disabled'] = 'disabled'
-            field.widget.attrs['readonly'] = 'readonly'
+class AlbumDeleteForm(AlbumBaseForm, ReadOnlyDisabledMixin):
+    pass

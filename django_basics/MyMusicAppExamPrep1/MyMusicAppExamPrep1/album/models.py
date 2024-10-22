@@ -38,6 +38,8 @@ class Album(models.Model):
         null=False,
     )
 
+    description = models.TextField(blank=True, null=True)
+
     image = models.URLField(
         blank=False,
         null=False,
@@ -51,6 +53,7 @@ class Album(models.Model):
         ]
     )
 
+    #TODO lazy reference to Profile - Single Responsibility principle
     owner = models.ForeignKey(
         Profile,
         on_delete=models.CASCADE,

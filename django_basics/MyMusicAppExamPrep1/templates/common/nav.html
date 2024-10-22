@@ -1,9 +1,11 @@
 {% load static %}
+{% load custom_user_tag %}
 <nav>
   <img src="{% static 'images/headphones.png' %}" alt="headphones" />
   <a href="{% url 'home-page' %}">Home</a>
   <ul></ul>
-  {% if profile %}
+  {% show_nav_if_profile as profile %}
+  {% if profile %}  
   <ul>
     <li><a href="{% url 'album-add' %}">Create Album</a></li>
     <li><a href="{% url 'profile-details' %}">Profile</a></li>

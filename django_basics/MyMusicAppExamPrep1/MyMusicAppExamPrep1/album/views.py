@@ -5,6 +5,7 @@ from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from MyMusicAppExamPrep1.album.forms import AlbumAddForm, AlbumEditForm, AlbumDeleteForm
 from MyMusicAppExamPrep1.album.models import Album
 from MyMusicAppExamPrep1.profile.models import Profile
+from MyMusicAppExamPrep1.utils import get_object
 
 
 # Create your views here.
@@ -12,6 +13,7 @@ class AlbumDetailsView(DetailView):
     model = Album
     template_name = 'album/album-details.html'
     context_object_name = 'album'
+    pk_url_kwarg = 'id'
 
 
 class AlbumAddView(CreateView):
@@ -19,27 +21,29 @@ class AlbumAddView(CreateView):
     template_name = 'album/album-add.html'
     form_class = AlbumAddForm
     context_object_name = 'album'
+    success_url = reverse_lazy('home-page')
 
-    def get_success_url(self):
-        return reverse_lazy('album-details', kwargs={'pk': self.object.pk})
+    def form_valid(self, form):
+        form.instance.owner = get_object()
+        return super().form_valid(form)
 
 
 class AlbumEditView(UpdateView):
     model = Album
     form_class = AlbumEditForm
     template_name = 'album/album-edit.html'
-
-    def get_success_url(self):
-        return reverse_lazy('album-details', kwargs={'pk': self.object.pk})
+    pk_url_kwarg = 'id'
+    success_url = reverse_lazy('home-page')
 
 
 class AlbumDeleteView(DeleteView):
     model = Album
     template_name = 'album/album-delete.html'
-    success_url = 'common/home-with-profile.html'
+    pk_url_kwarg = 'id'
+    success_url = reverse_lazy('home-page')
 
     def get_object(self, queryset=None):
-        return self.model.objects.get(pk=self.kwargs['pk'])
+        return self.model.objects.get(pk=self.kwargs[self.pk_url_kwarg])
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

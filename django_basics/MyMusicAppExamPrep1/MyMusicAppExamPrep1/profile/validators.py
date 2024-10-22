@@ -12,6 +12,8 @@ class UserNameValidator:
         else:
             self.message = message
 
+    #TODO I had to do it with setter and getter!!!!
+
     def __call__(self, value):
         match_string = r'^\w+$'
         if not re.match(match_string, value):

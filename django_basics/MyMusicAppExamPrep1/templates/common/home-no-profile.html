@@ -2,43 +2,43 @@
 {% load static %}
 
 {% block content %}
-      <!-- Main Content -->
-      <!--Home Page-->
-<div class="container-inline">
-    <section id="welcomePage">
-      <div id="welcome-message">
-        <h1>Welcome to</h1>
-        <h1>My Music App!</h1>
-      </div>
-      <div class="music-img">
-        <img src="{% static 'images/musicIcons.webp' %}" alt="music-icon" />
-      </div>
-    </section>
+    <!-- Main Content -->
+    <!--Home Page-->
+    <div class="container-inline">
+        <section id="welcomePage">
+            <div id="welcome-message">
+                <h1>Welcome to</h1>
+                <h1>My Music App!</h1>
+            </div>
+            <div class="music-img">
+                <img src="{% static 'images/musicIcons.webp' %}" alt="music-icon"/>
+            </div>
+        </section>
 
         <!-- Registration -->
-    <section id="registerPage">
-      <form method="POST">
-    <fieldset>
-        <legend>Profile</legend>
-        {% csrf_token %}
+        <section id="registerPage">
+            <form method="POST">
+                <fieldset>
+                    <legend>Profile</legend>
+                    {% csrf_token %}
 
-        {% for field in form %}
-            <div class="form-group">
-                {{ field.label_tag }}
-                {{ field }}
-                {% if field.errors %}
-                    <div class="alert alert-danger">
-                        {% for error in field.errors %}
-                            <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-            </div>
-        {% endfor %}
+                    {% for field in form %}
+                        <div class="form-group">
+                            {{ field.label_tag }}
+                            {{ field }}
+                            {% if field.errors %}
+                                <div class="alert alert-danger">
+                                    {% for error in field.errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
 
-        <button type="submit" class="register">Enter</button>
-    </fieldset>
-</form>
-    </section>
-</div>
+                    <button type="submit" class="register">Enter</button>
+                </fieldset>
+            </form>
+        </section>
+    </div>
 {% endblock %}
