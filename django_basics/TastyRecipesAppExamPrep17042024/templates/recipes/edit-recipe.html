@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- edit recipe form -->
+    <section id="create-page" class="auth">
+        <form id="create" method="post">
+            <div class="container">
+                <h1>Edit Recipe</h1>
+                {% csrf_token %}
+                {{ form }}
+                <!-- edit button -->
+                <input class="btn submit" type="submit" value="Edit Recipe"/>
+            </div>
+        </form>
+    </section>
+{% endblock %}

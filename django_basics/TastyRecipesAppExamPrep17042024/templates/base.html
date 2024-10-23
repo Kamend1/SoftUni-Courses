@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href={% static  'style/style.css' %} />
+    <title>TastyRecipesApp</title>
+</head>
+
+<body>
+<div id="box">
+    <header>
+        <!-- Navigation Bar -->
+        <h1><a class="index-navigation" href="{% url 'home_page' %}">Tasty Recipes</a></h1>
+        {% include 'nav.html' %}
+    </header>
+    {% block content %}
+    {% endblock %}
+    <!-- footer -->
+    <footer>&copy;SoftUni Team 2024. All rights reserved.</footer>
+</div>
+</body>
+</html>
