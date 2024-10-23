@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="{% static 'style/style.css' %}"/>
+    <title>WorldOfSpeed</title>
+</head>
+
+<body>
+<div id="box">
+    <header>
+        <h1>
+            <a class="index-navigation" href="{% url 'index' %}"
+            ><span>World of Speed</span></a
+            >
+        </h1>
+        {% include 'nav.html' %}
+    </header>
+    {% block content %}
+    {% endblock %}
+
+    {% include 'footer.html' %}
+
+</div>
+</body>
+</html>
