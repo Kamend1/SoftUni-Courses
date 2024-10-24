@@ -1,0 +1,18 @@
+{% load custom_tags %}
+<nav>
+    {% profile_object_tag as profile %}
+    {% if profile %}
+        <!-- If there is a user profile -->
+        <div class="user">
+            <a href="{% url 'dashboard' %}">Dashboard</a>
+            <a href="{% url 'create-fruit' %}">Add Fruit</a>
+            <a href="{% url 'details-profile' %}">Profile</a>
+        </div>
+    {% else %}
+        <!-- If user profile has NOT been created -->
+        <div class="guest">
+
+        <a href="{% url 'create-profile' %}">Create Profile</a>
+    {% endif %}
+    </div>
+</nav>
