@@ -1,0 +1,18 @@
+{% load custom_tags %}
+
+<nav>
+    {% author_object_tag as author %}
+    {% if author %}
+        <!-- If there is an author's profile -->
+        <div class="user">
+            <a href="{% url 'dashboard' %}">Dashboard</a>
+            <a href="{% url 'create-post' %}">New Post</a>
+            <a href="{% url 'details-author' %}">Author's Profile</a>
+        </div>
+    {% else %}
+        <!-- If author's profile has NOT been created -->
+        <div class="guest">
+            <a href="{% url 'create-author' %}">Create Author's Profile</a>
+        </div>
+    {% endif %}
+</nav>

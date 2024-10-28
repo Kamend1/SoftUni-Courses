@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=\, initial-scale=1.0"/>
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}"/>
+    <title>FurryFunnies</title>
+</head>
+<body>
+<div id="wrapper">
+    <header>
+        <!-- Navigation -->
+        <!-- Logo image: a link to index/home page -->
+        <a id="logo" href="{% url 'index' %}">
+            <img id="logo-img" src="{%  static 'images/logo.png' %}" alt="logo"/>
+        </a>
+
+        {% include 'nav.html' %}
+    </header>
+    {% block content %}
+    {% endblock %}
+</div>
+<!-- footer -->
+{% include 'footer.html' %}
+</body>
+</html>
